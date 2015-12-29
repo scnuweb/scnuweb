@@ -67,7 +67,7 @@
   <filter>
 		<filter-name>EncodeFilter</filter-name>
 		<filter-class>
-			com.vd.filter.EncodingFilter<!-- 过滤器类 -->
+			com.scnuweb.filter.EncodingFilter<!-- 过滤器类 -->
 		</filter-class>
 		<init-param>
 			<param-name>Encoding</param-name>
@@ -77,15 +77,5 @@
 	<filter-mapping>
 	 	<filter-name>EncodeFilter</filter-name>
 	 	<url-pattern>*.html</url-pattern>
-  </filter-mapping>
-  <filter>
-	 	<filter-name>AdminFilter</filter-name>
-	 	<filter-class>
-	 		com.vd.filter.AdminFilter
-	 	</filter-class>
-  </filter>
-  <filter-mapping>
-	 	<filter-name>AdminFilter</filter-name>
-	 	<url-pattern>/admin/*</url-pattern>
   </filter-mapping>
 </web-app>
