@@ -1,0 +1,7 @@
+.classpath
+.project
+.settings
+.externalToolBuilders
+/log
+/target
+/src/main/webapp/WEB-INF/config/jdbc.properties
