@@ -92,4 +92,11 @@
         p:maxUploadSize="524288000"  
        	p:uploadTempDir="upload/temp">
 	</bean>
+	 <mvc:annotation-driven/>
+	<mvc:resources mapping="/css/**" location="/WEB-INF/page/css/" />
+    <mvc:resources mapping="/fonts/**" location="/WEB-INF/page/fonts/" />
+    <mvc:resources mapping="/frame/**" location="/WEB-INF/page/frame/" />
+    <mvc:resources mapping="/html/**" location="/WEB-INF/page/html/" />
+    <mvc:resources mapping="/img/**" location="/WEB-INF/page/img/" />
+    <mvc:resources mapping="/js/**" location="/WEB-INF/page/js/" />
 </beans>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>part2</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/paper.css">
+  </head>
+  <body>
+        <div id="rt1">
+                <div class="vert1">
+                    <span class="glyphicon glyphicon-list-alt">
+                    &nbsp;
+                    <a href="" class="rfont">补正</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <span class="glyphicon glyphicon-list-alt">
+                        &nbsp;
+                        <a href="" class="rfont" style="width:200px;">不予受理</a>
+                    </span>
+                    <button class="btn btn-primary" style="margin-left:50%;" onclick="openDia('./explain/explain2.html','题目');">题目要求</button>
+                </div>
+        </div>
+        <div>
+            <h3 class="rh">中国大陆公民（包括侨胞）基础信息登记表</h3>
+            <table class="table-bordered table100">
+                <tr>
+                    <td style="width:25%">自然人姓名（中文）：</td>
+                    <td style="width:25%">
+                        <input type="text" class="ed" id="question1" value="" style="width:200px;height:25px;">
+                    </td>
+                    <td style="width:25%">性别：</td>
+                    <td style="width:25%">
+                        <div class="check-group" id="question2">
+                            男<input type="radio" name="radiobutton"  value="man">
+                            女<input type="radio" name="radiobutton" value="woman">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:25%">自然人姓名（英文）</td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td>身份证类型：</td>
+                    <td>
+                        <select id="select_paper" style="width:100%">
+                            <option>居民身份证</option>
+                            <option>其他</option>
+                        </select>
+                    </td>
+                    <td>身份证证件号码</td>
+                        
+                    <td>
+                        <input type="text" class="ed" id="question3" value="" style="width:200px;height:25px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>自然人使用的其他证件类型</td>
+                    <td>
+                        <select id="select_paper_kind" style="width:100%">
+                            <option>-请选择-</option>
+                            <option>军官证</option>
+                        </select>
+                    </td>
+                    <td>自然人使用的其他证件号码</td>
+                    <td>
+                        <input type="text" class="ed" id="num_else" value="" style="width:200px;height:25px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>纳税人识别号</td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td  colspan="4">有效联系电话(”移动电话“与”固定电话”请至少填写一项)</td>
+                </tr>
+                <tr>
+                    <td>移动电话号码</td>
+                    <td>
+                         <input type="text" class="ed" id="question4" value="" style="width:200px;height:25px;">
+                    </td>
+                    <td>固定电话号码</td>
+                    <td>
+                        <input type="text" class="ed" id="phone_num" value="" style="width:200px;height:25px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>电子邮箱</td>
+                    <td colspan="3">
+                        <input type="text" class="ed" id="email" value="" style="width:200px;height:25px;">
+                    </td>
+                </tr>
+            </table>            
+        </div>
+
+
+         <div id="popDiv" class="mydiv" style="display:none;">
+            <span class="rh">变更中国大陆公民（包括华侨）信息成功</span>
+            <br/>
+            <input type="button" class="btn btn-success" value="下一步" onclick="javascript:hidePopup('popDiv','bg');showPopup('show_print','bg');"/>
+        </div>
+
+        <div id="show_print" class="mydiv" style="display:none;">
+            <table class="rh">
+                <tr>
+                    <td width="25%">纳税人识别号：</td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td>中文姓名：</td>
+                    <td></td>
+                    <td>英文姓名:</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>证件类型：</td>
+                    <td></td>
+                    <td>证件号码：</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <table class="table100 rh">
+                <tr>
+                    <td>变更项目</td>
+                    <td>变更前内容</td>
+                    <td>变更后内容</td>
+                </tr>
+                <tr>
+                    <td>？</td>
+                    <td>？</td>
+                    <td>？</td>
+                </tr>
+            </table>
+            <input type="button" class="btn btn-success" onclick="hidePopup('show_print','bg');showPopup('finish','bg');" value="打印"/>
+            <input type="button" class="btn btn-success" onclick="hidePopup('show_print','bg');" value="取消"/>
+        </div>
+    
+        <div id="bg" class="bg" style="display:none;"></div>
+    
+        <div id="finish" class="mydiv" style="display:none;">
+            <h4>测试完成！</h4>
+            <button class="btn btn-success" onclick="hidePopup('finish','bg');shut();" >完成</button>
+        </div>
+
+        <div id="next">
+            <button class="btn btn-success" onclick="showPopup('popDiv','bg')">提交</button>
+            <button id="question5" class="btn btn-success">打印变更表</button>
+        </div>
+       
+
+       
+
+	<script>
+
+        function showPopup(key1,key2) 
+        {//弹出层 
+        var objDiv = document.getElementById(key1); 
+        var b=document.getElementById(key2);
+        b.style.display="block";
+        b.style.visibility="visible"; 
+        objDiv.style.display = "block"; 
+        objDiv.style.visibility = "visible";
+       
+        } 
+        function hidePopup(key1,key2) 
+        {//关闭层 
+        var objDiv = document.getElementById(key1);
+        var b = document.getElementById(key2);
+        b.style.visibility="hidden"; 
+        objDiv.style.visibility = "hidden"; 
+        } 
+        function shut()
+        {
+            window.opener=null;  
+            window.open('','_self');  
+            window.close();  
+        }
+    </script> 
+    
+    <script type="text/javascript" src="js/man.js"></script>
+    <script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="frame/easyui/jquery.easyui.min.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/zDrag.js"></script>
+    <script type="text/javascript" src="js/zDialog.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>查询成绩</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="金税三期" />
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/man.css">
+<link rel="stylesheet" type="text/css" href="frame/easyui/themes/default/easyui.css">
+<style>
+    table td{
+    border: 1px solid #BBCDDF;
+    padding-left: 5px;
+    height:25px;
+}
+</style>
+</head>
+    <body>
+    	<div title="查看成绩">
+            <div id="choClass">
+                <span>选择考试：</span>
+                <select name="choo_paper" id="chPaper">
+                    <option value="test1">自然人变更登记</option>
+                    <option value="test2">自然人登记</option>
+                    <option value="test3">自然人多证同用登记</option>
+                </select>
+             </div>
+            <table class="table100">
+                <tr>
+                    <td>ID号</td>
+                    <td>姓名</td>
+                    <td>分数（百分制）</td>
+                    <td>平均分</td>
+                </tr>
+                <tr>
+                    <td>00000000</td>
+                    <td>张三</td>
+                    <td>80</td>
+                    <td rowspan=2>
+                        <input id="avg" type="text" class="ed" style="width:100%;height:100%;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>00000001</td>
+                    <td>李四</td>
+                    <td>80</td>
+                </tr>
+            </table>
+            <div class="choose_btn" style="margin-top:10px;">
+                <button class="btn btn-info choose_btn">
+                    查看
+                </button>
+            </div>
+        </div>
+    <script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
+  	<script type="text/javascript" src="frame/easyui/jquery.easyui.min.js"></script>
+  	<script type="text/javascript" src="js/man.js"></script>
+    </body>
+</html>

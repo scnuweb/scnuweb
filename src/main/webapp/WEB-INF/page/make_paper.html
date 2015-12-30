@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>生成试卷</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="金税三期" />
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/man.css">
+<link rel="stylesheet" type="text/css" href="frame/easyui/themes/default/easyui.css">
+<style>
+    table td{
+    border: 1px solid #BBCDDF;
+    padding-left: 5px;
+    height:25px;
+}
+</style>
+
+</head>
+    <body>
+    	<div title="生成试卷" id="makePaper">
+            <table class="table100">
+                <h6 class="rh">选择分类</h6>
+                <div id="cho_2">
+                <span>选择类别：</span>
+                <select name="choo_paper">
+                    <option value="cho1">登记</option>
+                    <option value="cho2">认定</option>
+                    <option value="cho3">申报</option>
+                    <option value="cho4">优惠</option>
+                    <option value="cho5">证明</option>
+                </select>
+                </div>
+                <h6 class="rh">组织试题</h6>
+                <tr>
+                    <td style="width='20%';">题号</td>
+                    <td style="width='40%';">所属部分</td>
+                    <td style="width='15%';">分值</td>
+                    <td sthyle="width='15%'">预览</td>
+                    <td style="width='10%'">选定</td>
+                </tr>
+                <!--需要直接显示所有的试卷！！！未实现-->
+                <tr>
+                    <td>1</td>
+                    <td>自然人变更登记（part1）</td>
+                    <td>
+                        <input type="number" max="100" min="1" style="width:100%">
+                    </td>
+                    <td>
+                        <a href="" target="_blank">点击浏览</a>
+                    </td>
+                    <td>
+                        <input type="checkbox" value="checkbox"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>自然人变更登记（part2）</td>
+                    <td>
+                        <input type="number" max="100" min="1" style="width:100%">
+                    </td>
+                    <td>
+                        <a href="" target="_blank">点击浏览</a>
+                    </td>
+                    <td>
+                        <input type="checkbox" value="checkbox"/>
+                    </td>
+                </tr>
+            </table>
+            <div id="choose">
+                <button class="btn btn-info choose_btn1">
+                    预览试卷
+                </button>
+            </div>
+            <h6 class="rh">已选试卷</h6>
+            <table class="table100">
+                <tr>
+                    <td style="width='20%';">题号</td>
+                    <td style="width='40%';">所属部分</td>
+                    <td style="width='40%';">分值</td>
+                </tr>
+                <!--需要直接显示所有的试卷！！！未实现-->
+                <tr>
+                    <td>1</td>
+                    <td>自然人变更登记（part1）</td>
+                    <td id="grade">
+                        
+                    </td>
+                </tr>
+            </table><div id="choose">
+                <button class="btn btn-info choose_btn">
+                    生成试卷
+                </button>
+                <button class="btn btn-info choose_btn">
+                    生成模拟试卷
+                </button>
+            </div>
+            
+
+        </div>
+    </body>
+</html>

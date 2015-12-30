@@ -1,6 +1,6 @@
 <html>
 <script type="text/javascript">
-	window.location="login.html"
+	window.location="index.html"
 </script>
 <body>
 </body>

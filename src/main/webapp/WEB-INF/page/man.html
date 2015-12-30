@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="金税三期" />
+    <title>管理员界面</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/man.css">
+    <link rel="stylesheet" type="text/css" href="frame/easyui/themes/default/easyui.css">
+    </head>.
+    <body>
+    <!--头部部分-->
+    <div class="topbar">
+        <div class="container">
+            <a id="logo" href="">管理员系统</a>
+            <nav id="nav" class="ib nav nav-pills">
+              <li><a href="" class="r5">帮助</a></li>
+              <li><a href="" class="r5">注销</a></li>
+              <li class="dropdown" id="man" style="display:none">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                   用户信息管理
+                   <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" style="background:rgb(26,145,202);">
+                   <li><a href="#" onClick="openDia('./man_delete_people.html','删除')">删除</a></li>
+                   <li><a href="#" onClick="openDia('./man_control_mul.html','编辑')">编辑</a></li>
+                   <li><a href="#" onClick="openDia('./man_sort.html','排序')">排序</a></li>
+                   <li>
+                    <a href="#" class="updateFile">
+                        导入
+                        <input type="file" id="" name="" />
+                    </a>
+                   </li>
+                </ul>
+                
+                <li class="dropdown" id="manO" style="display:none">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                   用户信息管理
+                   <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" style="background:rgb(26,145,202);">
+                   <li><a href="#" onClick="openDia('./man_delete_people.html','删除')">删除</a></li>
+                </ul>
+                </li>
+              <li><a href="#" class="r5" onClick="openDia()">退出</a></li>
+            </nav>
+            <div class="ib">欢迎您：[placeholder]</div>    
+        </div>
+    </div>
+    <!--主体部分-->
+    <div class="container">
+        <div class="row">
+            <!--主体左侧部分-->
+            <div class="col-md-3">
+                <div class="leftside">
+                    <span id="function">功能列表</span>
+                    <div class="leftsidecontent">
+                        <button id="man_control"class="btn btn-primary menul" onclick="addTab('学员名单','./man_control.html');hide('man_control');return false;">
+                        <span id="l1" class="glyphicon glyphicon-expand" ></span>&nbsp;&nbsp;人员管理
+                        </button>
+                    </div>
+                    <!--
+                    <div class="leftsidecontent">
+                        <button id="s1" class="btn btn-primary menul">
+                        <span class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;试卷测试系统
+                        </button>
+                    </div>
+                -->
+                    <div class="leftsidecontent">
+                        <button id="make_paper" class="btn btn-primary menul" onclick="addTab('生成试卷','./make_paper.html');hide('make_paper');return false;">
+                        <span id="l1" class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;生成试卷
+                        </button>
+                    </div>
+                    <div class="leftsidecontent">
+                        <button id="organize_test" class="btn btn-primary menul" onclick="addTab('组织考试','./organize_test.html');hide('organize_test');return false;">
+                        <span id="l1" class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;组织考试
+                        </button>
+                    </div>
+                    <div class="leftsidecontent">
+                        <button id="find_grade" class="btn btn-primary menul" onclick="addTab('查看成绩','./find_grade.html');hide('find_grade');return false;">
+                        <span id="l1" class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;查看成绩
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--主体右侧部分-->
+            <div class="col-md-9" id="rs">
+                <div id="tt" class="easyui-tabs" style="width:100%;height:500px;">
+                
+                    <div title="首页" id="rrr">
+                        <div id="rt1">
+                          <a href="" class="rfont">&nbsp;管理员使用界面</a>
+                        </div>
+                  </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+  <script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
+  <script type="text/javascript" src="frame/easyui/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="js/man.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/zDrag.js"></script>
+  <script type="text/javascript" src="js/zDialog.js"></script>
+  </body>
+</html>

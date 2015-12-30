@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>导入学员</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="金税三期" />
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/man.css">
+<link rel="stylesheet" type="text/css" href="frame/easyui/themes/default/easyui.css">
+<style>
+    .ini_t{
+    border: 1px solid #BBCDDF;
+    padding-left: 5px;
+    height:25px;
+}
+</style>
+<script>
+  function openDia(address,name)
+    {
+       var diag = new Dialog();
+       diag.Width = 900;
+       diag.Height = 400;
+       diag.Title = name;
+       diag.URL = address;
+       diag.show();
+    }
+</script>
+</head>
+    <body>
+    	<div title="学员名单" id="rrr">
+            <h6 class="rh">搜索学员信息</h6>
+            <div class="serachCon">
+                <select class="select_paper">
+                    <option>ID</option>
+                    <option>姓名</option>
+                </select>
+                <input type="text" placeholder="人员搜索" >
+                <a href="" type="button" class="glyphicon glyphicon-search" ></a>
+                <hr class="search_icon">
+            </div>
+            <h6 class="rh">导入学员信息 <span style="margin-left:70%">全选</span><input id="chooseAll"type="checkbox"/></h6>
+    		<table class="table100 ini_t">
+    			<tr>
+    				<td class="ini_t" style="width='20%';">编号</td>
+                    <td class="ini_t" style="width='20%';">单位</td>
+    				<td class="ini_t" style="width='20%';">ID</td>
+    				<td class="ini_t" style="width='30%';">姓名</td>
+                    <td class="ini_t" style="width='20%';">编辑</td>
+                    <td class="ini_t" style="width='10%';">删除</td>
+    				<td class="ini_t" style="width='10%';">选定</td>
+    			</tr>
+    			<tr>
+    				<td class="ini_t" >1</td>
+                    <td class="ini_t">单位1</td>
+    				<td class="ini_t" >00000000</td>
+    				<td class="ini_t" >张三</td>
+                    <td class="ini_t" >
+                        <a href="#" style="color:blue;" onClick="openDia('./man_control_one.html','编辑人员')">
+                            编辑
+                        </a>
+                    </td>
+                    <td class="ini_t" ><a href="" style="color:blue;">删除</a></td>
+    				<td class="ini_t" >
+    					<input type="checkbox" value="checkbox"/>
+    				</td>
+    			</tr>
+    		</table>
+    		<div id="choose">
+    			<button class="btn btn-info choose_btn1">
+    				确认
+    			</button>
+                <!--
+                <button class="btn btn-info choose_btn_3">
+                    删除
+                </button>-->
+                <!--
+                <a href="" class="updateFile btn btn-info choose_btn_3" style="color:white;">
+                    从本地导入
+                    <input type="file" id="" name="" />
+                </a>-->
+    		</div>
+            
+    	</div>
+    <script type="text/javascript" src="js/zDrag.js"></script>
+    <script type="text/javascript" src="js/zDialog.js"></script>
+    <script type="text/javascript" src="js/man.js"></script>
+    </body>
+</html>

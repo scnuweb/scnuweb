@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ziranrendengji.css">
+    <style>
+    *{
+        font-family: "微软雅黑";
+    }
+    a,a:hover,a:link,a:visited,a:active{
+        text-decoration:none;
+        outline:none;
+    }
+    </style>
+    </head>
+    <body>
+        <div id="rt1">
+            <div class="vert1"><span class="glyphicon glyphicon-list-alt">&nbsp;<a href="" class="rfont">补正</a>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="glyphicon glyphicon-list-alt">&nbsp;<a href="" class="rfont">不予受理</a></span>
+            </div>
+        </div>
+        <div class="rh">选择办理事项</div>
+        <div class="common">
+            &nbsp;&nbsp;<input name="select" type="radio" checked>&nbsp;中国大陆公民（包括华侨）信息登记 
+            &nbsp;&nbsp;<input name="select" type="radio">&nbsp;外籍人员信息登记 
+            &nbsp;&nbsp;<input name="select" type="radio">&nbsp;港奥台同胞信息登记 
+        </div>
+        <div class="rh">确认需要提交的材料列表</div>
+        <table class="table-bordered table100">
+        <tr><td style="width:8%">序号</td><td style="width:44%">材料列表</td><td style="width:12%">是否必报</td><td style="width:12%">是否查验</td><td style="width:12%">是否归档</td><td style="width:12%">选择</td></tr>
+        <tr><td>1</td><td class="remark">中国大陆公民(包括华侨)基础信息登记表(*)</td><td>是</td><td>否</td><td>是</td><td><input type="checkbox" checked></td></tr>
+        <tr><td>2</td><td class="remark">居民身份证复印件(*)</td><td>是</td><td>否</td><td>是</td><td><input type="checkbox"></td></tr>
+        <tr><td>3</td><td class="remark">居民身份证(*)</td><td>是</td><td>是</td><td>否</td><td><input type="checkbox"></td></tr>
+        <tr><td>4</td><td>护照复印件</td><td>否</td><td>否</td><td>是</td><td><input type="checkbox"></td></tr>
+        <tr><td>5</td><td>护照</td><td>否</td><td>是</td><td>否</td><td><input type="checkbox"></td></tr>
+        </table>
+        <div id="next"><button class="btn btn-success">下一步</button>  <span id="load">个人税收管理系统打印组件下载</span></div>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
