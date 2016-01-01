@@ -17,7 +17,7 @@ import com.scnuweb.entity.User;
 public class LoginFilter implements Filter{
 
 	private String excludedPages[] ;
-	private String redirectPage;
+	private String redirectBaseUrl;
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
@@ -33,20 +33,30 @@ public class LoginFilter implements Filter{
 		HttpServletRequest request = (HttpServletRequest) resq;
 		String requestPath = request.getServletPath();
 		for(String excludedPage:excludedPages) {
-			if(excludedPage.equals(requestPath)) chain.doFilter(resq, resp);
+			if(excludedPage.equals(requestPath)) {
+				chain.doFilter(resq, resp);
+				return;
+			}
 		}
 		User user = (User)request.getSession().getAttribute("currentUser");
 		if(user==null) {
-			response.sendRedirect(redirectPage);
-		} else chain.doFilter(resq, resp);
-		
+			response.sendRedirect(redirectBaseUrl+"login.html");
+		} else  {
+			if(user.getUserType()==1) {
+				if(!requestPath.startsWith("/admin/"))response.sendRedirect(redirectBaseUrl+"admin/index.html");
+				else chain.doFilter(resq, resp);
+			} else {
+				if(!requestPath.startsWith("/candidate/"))response.sendRedirect(redirectBaseUrl+"candidate/index.html");
+				else chain.doFilter(resq, resp);
+			}
+		}
 	}
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		// TODO Auto-generated method stub
 		excludedPages = filterConfig.getInitParameter("excludedPages").split(",");
-		redirectPage = filterConfig.getInitParameter("redirectPage");
+		redirectBaseUrl = filterConfig.getInitParameter("redirectBaseUrl");
 	}
 
 }

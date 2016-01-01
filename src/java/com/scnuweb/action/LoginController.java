@@ -20,9 +20,16 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
+	@RequestMapping("/*")
+	public String index(ModelMap modelMap,HttpServletRequest request) {
+		return "redirect:/login.html";
+	}
 	@RequestMapping("login")
 	public String login(ModelMap modelMap,HttpServletRequest request) {
-		return "login";
+		User user = (User)request.getSession().getAttribute("currentUser");
+		if(user==null) return "login";
+		else if(user.getUserType()==1)return "redirect:/admin/index.html";
+		else return "redirect:/candidate/index.html";
 	}
 	@RequestMapping("loginSubmit")
 	public String loginSubmit(ModelMap modelMap,HttpServletRequest request,
@@ -30,14 +37,10 @@ public class LoginController {
 		User user = userService.checkLogin(username, password,userType);
 		if(user!=null) {
 			request.getSession(true).setAttribute("currentUser", user);
-			return "index";
+			if(user.getUserType()==1) return "redirect:/admin/index.html";
+			else return "redirect:/candidate/index.html";
 		}
 		modelMap.put("incorrect", true);
-		return "login";
-	}
-	@RequestMapping("logout")
-	public String logout(ModelMap modelMap,HttpServletRequest request) {
-		request.getSession(true).setAttribute("currentUser", null);
 		return "login";
 	}
 }

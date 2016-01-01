@@ -78,6 +78,7 @@
 	<filter-mapping>
 	 	<filter-name>EncodeFilter</filter-name>
 	 	<url-pattern>*.html</url-pattern>
+	 	<url-pattern>*.do</url-pattern>
   </filter-mapping>
   <filter>
 		<filter-name>LoginFilter</filter-name>
@@ -89,13 +90,14 @@
 			<param-value>/login.html,/loginSubmit.do</param-value>
 		</init-param>
 		<init-param>
-			<param-name>redirectPage</param-name>
-			<param-value>/scnuweb/login.html</param-value>
+			<param-name>redirectBaseUrl</param-name>
+			<param-value>/scnuweb/</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
 	 	<filter-name>LoginFilter</filter-name>
-	 	<url-pattern>/</url-pattern>
+	 	<url-pattern>*.html</url-pattern>
+	 	<url-pattern>*.do</url-pattern>
   </filter-mapping>
 
 </web-app>
