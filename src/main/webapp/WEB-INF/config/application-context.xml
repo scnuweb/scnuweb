@@ -23,7 +23,10 @@
 			</list>
 		</property>
 	</bean>
-	
+	<bean id="InitRunner" class="com.scnuweb.util.InitRunner">
+		<property name="adminUsername" value="admin" />
+		<property name="adminPassword" value="admin" />
+	</bean>
 	
 	
 	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"

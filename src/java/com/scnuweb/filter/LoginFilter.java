@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.scnuweb.entity.User;
+import com.scnuweb.util.StaticVar;
 
 
 public class LoginFilter implements Filter{
@@ -42,7 +43,7 @@ public class LoginFilter implements Filter{
 		if(user==null) {
 			response.sendRedirect(redirectBaseUrl+"login.html");
 		} else  {
-			if(user.getUserType()==1) {
+			if(user.getUserType()==StaticVar.USER_TYPE_ADMIN) {
 				if(!requestPath.startsWith("/admin/"))response.sendRedirect(redirectBaseUrl+"admin/index.html");
 				else chain.doFilter(resq, resp);
 			} else {

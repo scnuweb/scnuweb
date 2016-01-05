@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.scnuweb.entity.User;
 import com.scnuweb.service.UserService;
+import com.scnuweb.util.StaticVar;
 
 
 @Controller
@@ -28,7 +29,7 @@ public class LoginController {
 	public String login(ModelMap modelMap,HttpServletRequest request) {
 		User user = (User)request.getSession().getAttribute("currentUser");
 		if(user==null) return "login";
-		else if(user.getUserType()==1)return "redirect:/admin/index.html";
+		else if(user.getUserType()==StaticVar.USER_TYPE_ADMIN)return "redirect:/admin/index.html";
 		else return "redirect:/candidate/index.html";
 	}
 	@RequestMapping("loginSubmit")
@@ -37,7 +38,7 @@ public class LoginController {
 		User user = userService.checkLogin(username, password,userType);
 		if(user!=null) {
 			request.getSession(true).setAttribute("currentUser", user);
-			if(user.getUserType()==1) return "redirect:/admin/index.html";
+			if(user.getUserType()==StaticVar.USER_TYPE_ADMIN) return "redirect:/admin/index.html";
 			else return "redirect:/candidate/index.html";
 		}
 		modelMap.put("incorrect", true);

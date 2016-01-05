@@ -30,44 +30,50 @@
     	<div title="考生名单" id="rrr">
             <h6 class="rh">搜索考生信息</h6>
             <div class="serachCon">
-                <select class="select_paper">
-                    <option>ID</option>
-                    <option>姓名</option>
-                </select>
-                <input type="text" placeholder="考生搜索" >
-                <a href="" type="button" class="glyphicon glyphicon-search" ></a>
-                <hr class="search_icon">
+            	<form method="post" action="candidate_manage.html" id="search-form">
+	                <select class="select_paper" name="searchType">
+	                    <option value="no" <#if no??>selected="selected"</#if> >编号</option>
+	                    <option value="trueName" <#if trueName??>selected="selected"</#if> >姓名</option>
+	                </select>
+	                <input type="text" name="searchValue" placeholder="考生搜索" value="${searchValue?if_exists}">
+	                <a href="javascript:void(0);" onClick="$('#search-form').submit();" class="glyphicon glyphicon-search" ></a>
+	                <hr class="search_icon">
+            	</form>
             </div>
-            <h6 class="rh">导入考生信息 <span style="margin-left:70%">全选</span><input id="chooseAll"type="checkbox"/></h6>
+            <h6 class="rh">管理考生信息 <span style="margin-left:70%">全选</span><input id="chooseAll"type="checkbox"/></h6>
     		<table class="table100 ini_t">
     			<tr>
-    				<td class="ini_t" style="width='20%';">编号</td>
-                    <td class="ini_t" style="width='20%';">单位</td>
-    				<td class="ini_t" style="width='20%';">ID</td>
-    				<td class="ini_t" style="width='30%';">姓名</td>
-                    <td class="ini_t" style="width='20%';">编辑</td>
-                    <td class="ini_t" style="width='10%';">删除</td>
-    				<td class="ini_t" style="width='10%';">选定</td>
+    				<th class="ini_t" style="width='20%';">编号</th>
+    				<th class="ini_t" style="width='30%';">用户名</th>
+    				<th class="ini_t" style="width='30%';">姓名</th>
+                    <th class="ini_t" style="width='20%';">单位</th>
+    				<th class="ini_t" style="width='30%';">职务</th>
+                    <th class="ini_t" style="width='20%';">编辑</th>
+                    <th class="ini_t" style="width='10%';">删除</th>
+    				<th class="ini_t" style="width='10%';">选定</th>
     			</tr>
+    			<#list candidateList as candidate>
     			<tr>
-    				<td class="ini_t" >1</td>
-                    <td class="ini_t">单位1</td>
-    				<td class="ini_t" >00000000</td>
-    				<td class="ini_t" >张三</td>
+    				<td class="ini_t" >${candidate.no?if_exists}</td>
+    				<td class="ini_t" >${candidate.username?if_exists}</td>
+    				<td class="ini_t" >${candidate.trueName?if_exists}</td>
+                    <td class="ini_t">${candidate.unit?if_exists}</td>
+    				<td class="ini_t" >${candidate.position?if_exists}</td>
                     <td class="ini_t" >
-                        <a href="#" style="color:blue;" onClick="openDia('./man_control_one.html','编辑考生')">
+                        <a href="./edit_candidate.html?userId=${candidate.id}" style="color:blue;">
                             编辑
                         </a>
                     </td>
-                    <td class="ini_t" ><a href="" style="color:blue;">删除</a></td>
+                    <td class="ini_t" ><a href="deleteCandidate.do?userId=${candidate.id}" style="color:blue;" onClick="return confirm('确定要删除？')">删除</a></td>
     				<td class="ini_t" >
     					<input type="checkbox" value="checkbox"/>
     				</td>
     			</tr>
+    			</#list>
     		</table>
     		<div id="choose">
-    			<button class="btn btn-info choose_btn1">
-    				确认
+    			<button class="btn btn-info choose_btn1" onClick="window.location='add_candidate.html'">
+    				添加考生
     			</button>
                 <!--
                 <button class="btn btn-info choose_btn_3">
@@ -81,6 +87,7 @@
     		</div>
             
     	</div>
+    <script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="js/zDrag.js"></script>
     <script type="text/javascript" src="js/zDialog.js"></script>
     <script type="text/javascript" src="js/man.js"></script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>添加</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="金税三期" />
+<link href="css/bootstrap.min.css" rel="stylesheet">
+ 	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/man.css">
+    <link rel="stylesheet" type="text/css" href="frame/easyui/themes/default/easyui.css">
+	<script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="js/add-candidate.js"></script>
+	<script type="text/javascript">
+		function shutW(){  
+	 	   window.open('','_parent','');
+			window.opener = window;
+			window.close();  
+		}  
+	</script>
+
+</head>
+    <body>
+        <div>
+        	<h6 class="rh">添加考生</h6>
+        	
+        	 <form class="form-horizontal" method="post" action="add_candidate_submit.do">
+				  <div class="form-group">
+				    <label for="username" class="col-sm-2 control-label">用户名</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control required" style="width:50%;" name="username" id="username" placeholder="用户名">
+				    	<p class="help-block" style="display:none"></p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="password" class="col-sm-2 control-label">密码</label>
+				    <div class="col-sm-10">
+				      <input type="password" class="form-control required" style="width:50%;" name="password" id="password" placeholder="密码">
+				    	<p class="help-block" style="display:none"></p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="trueName" class="col-sm-2 control-label">姓名</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control required" style="width:50%;" name="trueName" id="trueName" placeholder="姓名">
+				   	  <p class="help-block" style="display:none"></p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="no" class="col-sm-2 control-label">编号</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control required" style="width:50%;" name="no" id="no" placeholder="编号">
+				    <p class="help-block" style="display:none"></p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="unit" class="col-sm-2 control-label">单位</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control required" style="width:50%;" name="unit" id="unit" placeholder="单位">
+				    <p class="help-block" style="display:none"></p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="position" class="col-sm-2 control-label">职务</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control required" style="width:50%;" name="position" id="position" placeholder="职务">
+				    <p class="help-block" style="display:none"></p>
+				    </div>
+				  </div>
+		         <div style="margin-top:10px">
+		             <button class="btn btn-primary" style="margin-left:25%;" type="submit" id="edit-candidate-btn">保存</button>
+		        </div>
+				</form>
+		         <button class="btn" style="margin-left:25%;margin-top:1%" onClick="window.location='candidate_manage.html'">返回</button>
+        	
+        		
+
+    </body>
+</html>
