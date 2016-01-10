@@ -1,13 +1,23 @@
 package com.scnuweb.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.scnuweb.util.StaticVar;
+
 @Entity
-@Table(name="user")
+@Table(name=StaticVar.TABLE_PREFIX+"user")
 public class User {
 	@Id
 	@GeneratedValue
@@ -28,6 +38,11 @@ public class User {
 	private String position;
 	@Column(name="basic_info")
 	private String basicInfo;
+	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@JoinTable(name=StaticVar.TABLE_PREFIX+"user_exam",
+		joinColumns={ @JoinColumn(name ="user_id" )},
+		inverseJoinColumns = { @JoinColumn(name = "exam_id") })
+	private List<Exam> exams = new ArrayList<>();
 	
 	public Long getId() {
 		return id;
@@ -82,6 +97,12 @@ public class User {
 	}
 	public void setBasicInfo(String basicInfo) {
 		this.basicInfo = basicInfo;
+	}
+	public List<Exam> getExams() {
+		return exams;
+	}
+	public void setExams(List<Exam> exams) {
+		this.exams = exams;
 	}
 	
 	

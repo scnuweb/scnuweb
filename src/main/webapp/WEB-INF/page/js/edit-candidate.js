@@ -27,10 +27,12 @@ $(document).ready(function() {
 				}
 			});
 			$("#edit-candidate-btn").click(function() {
+				var flag = 0;
 				$(".required").each(function() {
-					if($(this).val()==null||$.trim($(this).val()).length==0) {
+					if(flag==0&&($(this).val()==null||$.trim($(this).val()).length==0)) {
 						alert("请完成必填项!");
 						$("#edit-candidate-btn").attr("disabled","disabled");
+						flag=1;
 					}
 				});
 				return true;
