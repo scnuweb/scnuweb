@@ -7,6 +7,8 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/man.css">
 <link rel="stylesheet" type="text/css" href="frame/easyui/themes/default/easyui.css">
+<script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="js/candidate-manage.js"></script>
 <style>
     .ini_t{
     border: 1px solid #BBCDDF;
@@ -14,33 +16,27 @@
     height:25px;
 }
 </style>
-<script>
-  function openDia(address,name)
-    {
-       var diag = new Dialog();
-       diag.Width = 900;
-       diag.Height = 400;
-       diag.Title = name;
-       diag.URL = address;
-       diag.show();
-    }
-</script>
+
+  
 </head>
     <body>
     	<div title="考生名单" id="rrr">
             <h6 class="rh">搜索考生信息</h6>
             <div class="serachCon">
             	<form method="post" action="candidate_manage.html" id="search-form">
-	                <select class="select_paper" name="searchType">
-	                    <option value="no" <#if no??>selected="selected"</#if> >编号</option>
-	                    <option value="trueName" <#if trueName??>selected="selected"</#if> >姓名</option>
-	                </select>
-	                <input type="text" name="searchValue" placeholder="考生搜索" value="${searchValue?if_exists}">
+	                <input type="text" name="no" placeholder="编号" value="${search.no?if_exists}"/>
+	                <input type="text" name="username" placeholder="用户名" value="${search.username?if_exists}"/>
+	               	<br/>
+	                <input type="text" name="trueName" placeholder="姓名" value="${search.trueName?if_exists}"/>
+	                <input type="text" name="unit" placeholder="单位" value="${search.unit?if_exists}" />
 	                <a href="javascript:void(0);" onClick="$('#search-form').submit();" class="glyphicon glyphicon-search" ></a>
 	                <hr class="search_icon">
             	</form>
             </div>
-            <h6 class="rh">管理考生信息 <span style="margin-left:70%">全选</span><input id="chooseAll"type="checkbox"/></h6>
+            <h6 class="rh">管理考生信息 <span style="margin-left:70%">全选</span><input id="chooseAll" type="checkbox"/></h6>
+	    	<div style="float:right">
+		    	<button class="btn btn-danger" id="delete-list">删除</</button>
+	    	</div>
     		<table class="table100 ini_t">
     			<tr>
     				<th class="ini_t" style="width='20%';">编号</th>
@@ -64,9 +60,9 @@
                             编辑
                         </a>
                     </td>
-                    <td class="ini_t" ><a href="deleteCandidate.do?userId=${candidate.id}" style="color:blue;" onClick="return confirm('确定要删除？')">删除</a></td>
+                    <td class="ini_t" ><a href="delete_candidate.do?userId=${candidate.id}" style="color:blue;" onClick="return confirm('确定要删除？')">删除</a></td>
     				<td class="ini_t" >
-    					<input type="checkbox" value="checkbox"/>
+    					<input type="checkbox" class="select-checkbox" candidate-id="${candidate.id?if_exists}" />
     				</td>
     			</tr>
     			</#list>

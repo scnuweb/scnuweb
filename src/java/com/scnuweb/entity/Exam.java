@@ -27,15 +27,20 @@ public class Exam {
 	private Date generateTime;
 	@Column(name="start_time")
 	private Date startTime;
-	@Column(name="last_time")
-	private Integer interval; 	//interval of the exam, based on minute(s)
-	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY,mappedBy="exams")
+	@Column(name="end_time")
+	private Date endTime;
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JoinTable(name=StaticVar.TABLE_PREFIX+"user_exam",
+		joinColumns={ @JoinColumn(name ="exam_id" )},
+		inverseJoinColumns = { @JoinColumn(name = "user_id") })
 	private List<User> candidates = new ArrayList<User>();
-	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinTable(name=StaticVar.TABLE_PREFIX+"exam_exam_item",
 		joinColumns={ @JoinColumn(name ="exam_id" )},
 		inverseJoinColumns = { @JoinColumn(name = "exam_item_id") })
 	private List<ExamItem> examItems = new ArrayList<>();
+	@Column(name="exam_name")
+	private String examName;
 	
 	public Long getId() {
 		return id;
@@ -43,6 +48,7 @@ public class Exam {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public Date getGenerateTime() {
 		return generateTime;
 	}
@@ -55,11 +61,11 @@ public class Exam {
 	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
-	public Integer getInterval() {
-		return interval;
+	public Date getEndTime() {
+		return endTime;
 	}
-	public void setInterval(Integer interval) {
-		this.interval = interval;
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
 	}
 	public List<User> getCandidates() {
 		return candidates;
@@ -73,6 +79,13 @@ public class Exam {
 	public void setExamItems(List<ExamItem> examItems) {
 		this.examItems = examItems;
 	}
+	public String getExamName() {
+		return examName;
+	}
+	public void setExamName(String examName) {
+		this.examName = examName;
+	}
+	
 	
 	
 	

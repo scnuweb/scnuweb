@@ -19,6 +19,7 @@ public class LoginFilter implements Filter{
 
 	private String excludedPages[] ;
 	private String redirectBaseUrl;
+	private boolean isValid;
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
@@ -29,7 +30,10 @@ public class LoginFilter implements Filter{
 	public void doFilter(ServletRequest resq, ServletResponse resp,
 			FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		
+		if(!isValid) {
+			chain.doFilter(resq, resp);
+			return;
+		}
 		HttpServletResponse response = (HttpServletResponse) resp;
 		HttpServletRequest request = (HttpServletRequest) resq;
 		String requestPath = request.getServletPath();
@@ -58,6 +62,7 @@ public class LoginFilter implements Filter{
 		// TODO Auto-generated method stub
 		excludedPages = filterConfig.getInitParameter("excludedPages").split(",");
 		redirectBaseUrl = filterConfig.getInitParameter("redirectBaseUrl");
+		isValid = Boolean.parseBoolean(filterConfig.getInitParameter("isValid"));
 	}
 
 }

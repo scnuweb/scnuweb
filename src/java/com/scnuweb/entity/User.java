@@ -14,6 +14,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+
+
+
+
+
+
 import com.scnuweb.util.StaticVar;
 
 @Entity
@@ -38,10 +44,7 @@ public class User {
 	private String position;
 	@Column(name="basic_info")
 	private String basicInfo;
-	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-	@JoinTable(name=StaticVar.TABLE_PREFIX+"user_exam",
-		joinColumns={ @JoinColumn(name ="user_id" )},
-		inverseJoinColumns = { @JoinColumn(name = "exam_id") })
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY,mappedBy="candidates")
 	private List<Exam> exams = new ArrayList<>();
 	
 	public Long getId() {
@@ -104,6 +107,14 @@ public class User {
 	public void setExams(List<Exam> exams) {
 		this.exams = exams;
 	}
-	
+	public User() {}
+	public User(Long id,String username,String trueName,String no,String position,String unit) {
+		this.id=id;
+		this.username=username;
+		this.trueName=trueName;
+		this.no=no;
+		this.position=position;
+		this.unit=unit;
+	}
 	
 }

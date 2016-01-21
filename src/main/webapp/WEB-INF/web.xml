@@ -53,6 +53,18 @@
     <session-timeout>720</session-timeout>
   </session-config>
   <filter>
+	<filter-name>hibernateFilter</filter-name>
+	<filter-class>
+		org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+	</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>hibernateFilter</filter-name>
+	<url-pattern>*.html</url-pattern>
+	<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+  <filter>
     <filter-name>encoding</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
     <init-param>
@@ -88,6 +100,10 @@
 		<init-param>
 			<param-name>excludedPages</param-name>
 			<param-value>/login.html,/loginSubmit.do</param-value>
+		</init-param>
+		<init-param>
+			<param-name>isValid</param-name>
+			<param-value>false</param-value>
 		</init-param>
 		<init-param>
 			<param-name>redirectBaseUrl</param-name>

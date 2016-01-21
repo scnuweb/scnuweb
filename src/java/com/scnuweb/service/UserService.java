@@ -15,4 +15,6 @@ public interface UserService extends BaseService<UserDAO>{
 	public List<User> getUsersByParams(Map<String, Object> params);
 	public List<User> getAllUsers();
 	public List<User> getAllCandidates();
+	public List<User> getCandidateListItem(User search);
+	public void deleteUsers(String deleteIdList);
 }

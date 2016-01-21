@@ -19,7 +19,7 @@
               <li><a href="" onclick="addTab('个人信息','./user_control_message.html');return false;">个人信息管理</a></li>
               <li><a href="logout.do" class="r5">退出</a></li>
             </nav>
-            <div class="ib">欢迎您：${Session.currentUser.username?if_exists}</div>    
+            <div class="ib">欢迎您：${Session.currentUser?if_exists.username?if_exists}</div>    
         </div>
     </div>
     <!--主体部分-->
@@ -30,8 +30,8 @@
                 <div class="leftside">
                     <span id="function">功能列表</span>
                     <div class="leftsidecontent">
-                        <button class="btn btn-primary menul" onclick="addTab('组织考试','./index.html');return false;">
-                            <span id="l1" class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;组织考试
+                        <button class="btn btn-primary menul" onclick="addTab('考试管理','./exam_manage.html');return false;">
+                            <span id="l1" class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;考试管理
                         </button>
                     </div>
                     <div class="leftsidecontent">

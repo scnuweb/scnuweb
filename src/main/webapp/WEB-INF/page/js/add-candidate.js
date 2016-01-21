@@ -29,7 +29,7 @@ $(document).ready(function() {
 				}
 				$.ajax({
 					dataType:"text",
-					url:'checkIsUsernameValid.do',
+					url:'check_is_username_valid.do',
 					data:{username:_username},
 					success:function(data) {
 						if(data=='false') {
