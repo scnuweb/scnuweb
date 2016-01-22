@@ -111,41 +111,14 @@
                 </div>
             <div id="choose-exam-item">
                 <h6 class="rh">选择考试试题</h6>
-                <div id="choClass">
-                    <span style="margin-left:20%">选择考试：</span>
-                    <select name="choo_paper" id="chPaper">
-                        <option value="test1">自然人变更登记</option>
-                        <option value="test2">自然人登记</option>
-                        <option value="test3">自然人多证同用登记</option>
-                    </select>
-
-
-                </div>
-                <table class="table100">
+                <table class="table100" id="exam-item-table">
                     <tr>
-                        <td>ID号</td>
-                        <td>姓名</td>
-                        <td>编辑</td>
-                        <td>
-                            选定
-                            <span style="margin-left:20%">全选</span><input id="chooseAll"type="checkbox"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>00000000</td>
-                        <td>张三</td>
-                        <td><a href="" style="color:blue;">删除</a></td>
-                        <td>
-                            <input type="checkbox" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>00000001</td>
-                        <td>李四</td>
-                        <td><a href="" style="color:blue;">删除</a></td>
-                        <td>
-                            <input type="checkbox" />
-                        </td>
+                        <th>试题名称</th>
+                        <th>生成时间</th>
+                        <th>
+                            	选定
+                            <span>全选</span><input id="chooseAll-exam-item" type="checkbox"/><button class="btn btn-info" id="import-exam-item-btn">选择</button>
+                        </th>
                     </tr>
                 </table>                            
                 

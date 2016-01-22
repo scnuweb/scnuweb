@@ -15,5 +15,7 @@ public interface ExamService extends BaseService<ExamDAO>{
 	public Exam getExamById(Long examId);
 	public void delete(Long examId);
 	public void importCandidate(Long examId,String candidateList);
+	public void importExamItem(Long examId,String examItemList);
 	public void deleteCandidate(Long examId,Long candidateId);
+	public void deleteExamItem(Long examId,Long examItemId);
 }

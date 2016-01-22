@@ -1,8 +1,12 @@
 $(document).ready(function() {
 	showCandidateList();
+	showExamItemList();
 	$("#chooseAll").click(function() {
 		 checkAll();
 	 }); 
+	$("#chooseAll-exam-item").click(function() {
+		checkAllExamItem();
+	});
 	$(".required").blur(function () {
 		var item = $.trim($(this).val());
 		if(item==null||item=='') {
@@ -51,7 +55,28 @@ $(document).ready(function() {
 					} else alert("导入失败");
 				},
 			});
-		}
+		} else alert("请选择需要导入的学生");
+	});
+	$("#import-exam-item-btn").click(function() {
+		var import_list = "-1";
+		var examId = $("#exam-id").val();
+		var cnt = 0;
+		$(".checkbox-exam-item:checked").each(function() {
+			  import_list+=','+$(this).attr("exam-item-id");
+			  cnt++;
+		});
+		if(cnt>0) {
+			$.ajax({
+				dataType:"text",
+				url:'import_exam_item_list.do',
+				data:{examId:examId,examItemList:import_list},
+				success:function(data) {
+					if(data=="true") {
+						showExamItemList();
+					} else alert("选择失败");
+				},
+			});
+		} else alert("请选择试题");
 	});
 });
 function checkAll() {
@@ -59,7 +84,45 @@ function checkAll() {
 		  $(".select-checkbox").prop("checked",'true');
 	  } else $(".select-checkbox").removeAttr("checked");
 }
+function checkAllExamItem() {
+	if($("#chooseAll-exam-item").get(0).checked) {
+		  $(".checkbox-exam-item").prop("checked",'true');
+	  } else $(".checkbox-exam-item").removeAttr("checked");
+}
+function showExamItemList() {
+	$("#chooseAll-exam-item").removeAttr("checked");
+	var exam_exam_item_arr;
+	var exam_id = $("#exam-id").val();
+	$.ajax({
+		dataType:"json",
+		url:'get_exam_exam_item_list.do',
+		data:{examId:exam_id},
+		success:function(data) {
+			exam_exam_item_arr = data;
+		},
+	});
+	$.ajax({
+		dataType:"json",
+		url:'get_exam_item_list.do',
+		data:{},
+		success:function(data) {
+			$(".exam-item-table-row").remove();
+			$.each(data,function(i,obj) {
+				var row = '<tr class="exam-item-table-row">'
+							+'<td>'+obj.examItemName+'</td>'
+								+'<td>'+obj.generateTime+'</td>'
+								+'<td>';
+								if($.inArray(obj.id,exam_exam_item_arr)<0)row+='<input type="checkbox" class="checkbox-exam-item" exam-item-id="'+obj.id+'"/>';
+								else row+='已选择<button class="btn btn-danger" onClick="deleteExamItemFromExam('+obj.id+')">移除</button>';
+									+'</td>';
+						   row+='</tr>';
+				$("#exam-item-table").append(row);
+			});
+		},
+	});
+}
 function showCandidateList() {
+	$("#chooseAll").removeAttr("checked");
 	var _no = $("#search-no").val();
 	var _username = $("#search-username").val();
 	var _truename = $("#search-truename").val();
@@ -104,6 +167,18 @@ function deleteFromExam(candidateId) {
 		data:{examId:exam_id,candidateId:candidateId},
 		success:function(data) {
 			if(data=="true")showCandidateList();
+			else alert("移除失败");
+		}
+	});
+}
+function deleteExamItemFromExam(examItemId) {
+	var exam_id = $("#exam-id").val();
+	$.ajax({
+		dataType:"text",
+		url:'delete_exam_item_from_exam.do',
+		data:{examId:exam_id,examItemId:examItemId},
+		success:function(data) {
+			if(data=="true")showExamItemList();
 			else alert("移除失败");
 		}
 	});

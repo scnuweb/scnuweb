@@ -15,7 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.scnuweb.dao.ExamDAO;
 import com.scnuweb.entity.Exam;
+import com.scnuweb.entity.ExamItem;
 import com.scnuweb.entity.User;
+import com.scnuweb.service.ExamItemService;
 import com.scnuweb.service.ExamService;
 import com.scnuweb.service.UserService;
 
@@ -27,6 +29,8 @@ public class ExamServiceImpl extends BaseServiceImpl<Exam> implements ExamServic
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private ExamItemService examItemService;
 
 	@Override
 	@Autowired
@@ -84,6 +88,28 @@ public class ExamServiceImpl extends BaseServiceImpl<Exam> implements ExamServic
 	}
 
 	@Override
+	public void importExamItem(Long examId, String examItemList) {
+		// TODO Auto-generated method stub
+		String[] list = examItemList.split(",");
+		Exam exam = examDAO.get(examId);
+		List<ExamItem> examItems = exam.getExamItems();
+		Set<Long> checkSet = new HashSet<>();
+		for(ExamItem examItem:examItems) {
+			checkSet.add(examItem.getId());
+		}
+		for(String item:list) {
+			Long examItemId = Long.parseLong(item);
+			if(checkSet.contains(examItemId))continue;
+			ExamItem examItem = examItemService.getExamItemById(examItemId);
+			if(examItem!=null) {
+				examItems.add(examItem);
+			}
+		}
+		exam.setExamItems(examItems);
+		examDAO.update(exam);
+	}
+	
+	@Override
 	public void importCandidate(Long examId,String candidateList) {
 		// TODO Auto-generated method stub
 		String[] list = candidateList.split(",");
@@ -95,7 +121,7 @@ public class ExamServiceImpl extends BaseServiceImpl<Exam> implements ExamServic
 		}
 		for(String item:list) {
 			Long candidateId = Long.parseLong(item);
-			if(checkSet.contains(candidateId))break;
+			if(checkSet.contains(candidateId))continue;
 			User candidate = userService.getUserById(candidateId);
 			if(candidate!=null) {
 				candidates.add(candidate);
@@ -115,6 +141,19 @@ public class ExamServiceImpl extends BaseServiceImpl<Exam> implements ExamServic
 			examDAO.update(exam);
 		}
 	}
+
+	@Override
+	public void deleteExamItem(Long examId, Long examItemId) {
+		// TODO Auto-generated method stub
+		Exam exam = examDAO.get(examId);
+		ExamItem examItem = examItemService.getExamItemById(examItemId);
+		if(examItem!=null) {
+			exam.getExamItems().remove(examItem);
+			examDAO.update(exam);
+		}
+	}
+
+	
 	
 	
 }

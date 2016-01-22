@@ -257,9 +257,23 @@ public class AdminController {
 		return "json";
 	}
 	
+	@RequestMapping("get_exam_item_list")
+	public String getExamItemList(ModelMap modelMap,HttpServletRequest request) {
+		List<ExamItem> examItemList = examItemService.getAllExamItems();
+		modelMap.put("info", MyJson.toJson(examItemList));
+		return "json";
+	}
+	
 	@RequestMapping("import_candidate_list")
 	public String importCandidate(ModelMap modelMap,HttpServletRequest request,Long examId,String candidateList) {
 		examService.importCandidate(examId, candidateList);
+		modelMap.put("info", "true");
+		return "json";
+	}
+	
+	@RequestMapping("import_exam_item_list")
+	public String importExamItemList(ModelMap modelMap,HttpServletRequest request,Long examId,String examItemList) {
+		examService.importExamItem(examId, examItemList);
 		modelMap.put("info", "true");
 		return "json";
 	}
@@ -280,6 +294,25 @@ public class AdminController {
 			retList.add(user.getId());
 		}
 		modelMap.put("info", MyJson.toJson(retList));
+		return "json";
+	}
+	
+	@RequestMapping("get_exam_exam_item_list")
+	public String getExamExamItemList(ModelMap modelMap,HttpServletRequest request,Long examId) {
+		Exam exam = examService.getExamById(examId);
+		List<ExamItem> examItemList = exam.getExamItems();
+		List<Long> retList = new ArrayList<>();
+		for(ExamItem examItem:examItemList) {
+			retList.add(examItem.getId());
+		}
+		modelMap.put("info", MyJson.toJson(retList));
+		return "json";
+	}
+	
+	@RequestMapping("delete_exam_item_from_exam")
+	public String deleteExamItemFromExam(ModelMap modelMap,HttpServletRequest request,Long examId,Long examItemId) {
+		examService.deleteExamItem(examId, examItemId);
+		modelMap.put("info", "true");
 		return "json";
 	}
 	
