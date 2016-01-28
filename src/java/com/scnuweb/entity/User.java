@@ -9,10 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 
 
@@ -46,6 +46,8 @@ public class User {
 	private String basicInfo;
 	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY,mappedBy="candidates")
 	private List<Exam> exams = new ArrayList<>();
+	@OneToMany(cascade=CascadeType.REMOVE,fetch=FetchType.LAZY,mappedBy="candidate")
+	private List<ExamGrade> examGrades;
 	
 	public Long getId() {
 		return id;
@@ -107,6 +109,14 @@ public class User {
 	public void setExams(List<Exam> exams) {
 		this.exams = exams;
 	}
+	public List<ExamGrade> getExamGrades() {
+		return examGrades;
+	}
+	public void setExamGrades(List<ExamGrade> examGrades) {
+		this.examGrades = examGrades;
+	}
+	
+	
 	public User() {}
 	public User(Long id,String username,String trueName,String no,String position,String unit) {
 		this.id=id;
@@ -116,5 +126,6 @@ public class User {
 		this.position=position;
 		this.unit=unit;
 	}
+	
 	
 }
