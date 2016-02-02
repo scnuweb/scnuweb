@@ -319,6 +319,6 @@ public class AdminController {
 	@RequestMapping("logout")
 	public String logout(ModelMap modelMap,HttpServletRequest request) {
 		request.getSession(true).setAttribute("currentUser", null);
-		return "login";
+		return "redirect:/login";
 	}
 }
