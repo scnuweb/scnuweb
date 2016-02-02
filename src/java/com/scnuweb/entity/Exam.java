@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.scnuweb.util.StaticVar;
@@ -41,6 +42,8 @@ public class Exam {
 	private List<ExamItem> examItems = new ArrayList<>();
 	@Column(name="exam_name")
 	private String examName;
+	@OneToMany(cascade=CascadeType.REMOVE,fetch=FetchType.LAZY,mappedBy="exam")
+	private List<ExamGrade> examGrades;
 	
 	public Long getId() {
 		return id;
@@ -84,6 +87,12 @@ public class Exam {
 	}
 	public void setExamName(String examName) {
 		this.examName = examName;
+	}
+	public List<ExamGrade> getExamGrades() {
+		return examGrades;
+	}
+	public void setExamGrades(List<ExamGrade> examGrades) {
+		this.examGrades = examGrades;
 	}
 	
 	
