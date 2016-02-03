@@ -17,7 +17,7 @@
             <nav id="nav" class="ib nav nav-pills">
               <li><a href="" class="r5">帮助</a></li>
               <li><a href="" onclick="addTab('个人信息','./user_control_message.html');return false;">个人信息管理</a></li>
-              <li><a href="" class="r5">退出</a></li>
+              <li><a href="logout.do" class="r5">退出</a></li>
             </nav>
             <div class="ib">欢迎您：${Session.currentUser?if_exists.username?if_exists}</div>    
         </div>
@@ -30,7 +30,7 @@
                 <div class="leftside">
                     <span id="function">功能列表</span>
                     <div class="leftsidecontent">
-                        <button class="btn btn-primary menul" onclick="addTab('选择考试卷','./exam_list.html');return false;">
+                        <button class="btn btn-primary menul" onclick="addTab('考核系统','./candidate_assessment.html');return false;">
                             <span class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;考核系统
                         </button>
                     </div>

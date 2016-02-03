@@ -1,5 +1,8 @@
 package com.scnuweb.action;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.ModelMap;
@@ -33,6 +36,23 @@ public class CandidateController {
 	@RequestMapping("logout")
 	public String logout(ModelMap modelMap,HttpServletRequest request) {
 		request.getSession(true).setAttribute("currentUser", null);
-		return "login";
+		return "redirect:/login";
 	}
+	
+	@RequestMapping("candidate_assessment")
+	public String candidateAssessment(ModelMap modelMap,HttpServletRequest request){
+		List<Exam> examList = examService.getAllExams();
+		Date nowDate = new Date();
+		modelMap.put("examList", examList);
+		modelMap.put("nowDate", nowDate);
+		return "candidate_assessment";
+		
+	}
+	
+	@RequestMapping("search_grade")
+	public String searchGrade(ModelMap modelMap,HttpServletRequest request){
+		return "search_grade";
+		
+	}
+	
 }
