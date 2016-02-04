@@ -28,31 +28,34 @@ public class CandidateController {
 	@Autowired
 	private ExamService examService;
 	
+	private User currUser;
+
 	@RequestMapping("index")
-	public String candidate(ModelMap modelMap,HttpServletRequest request) {
+	public String candidate(ModelMap modelMap, HttpServletRequest request) {
+		currUser = (User) request.getSession().getAttribute("currentUser");
 		return "candidate";
 	}
-	
+
 	@RequestMapping("logout")
-	public String logout(ModelMap modelMap,HttpServletRequest request) {
+	public String logout(ModelMap modelMap, HttpServletRequest request) {
 		request.getSession(true).setAttribute("currentUser", null);
 		return "redirect:/login";
 	}
-	
+
 	@RequestMapping("candidate_assessment")
-	public String candidateAssessment(ModelMap modelMap,HttpServletRequest request){
-		List<Exam> examList = examService.getAllExams();
+	public String candidateAssessment(ModelMap modelMap, HttpServletRequest request) {
+		List<Exam> examList = examService.getExamByUser(currUser.getId());
 		Date nowDate = new Date();
 		modelMap.put("examList", examList);
 		modelMap.put("nowDate", nowDate);
 		return "candidate_assessment";
-		
 	}
-	
+
 	@RequestMapping("search_grade")
-	public String searchGrade(ModelMap modelMap,HttpServletRequest request){
+	public String searchGrade(ModelMap modelMap, HttpServletRequest request) {
+	//	List<ExamGrade> gradeList = examGradeService.getExamGradeById(examGradeId);
 		return "search_grade";
-		
+
 	}
-	
+
 }
