@@ -1,0 +1,11 @@
+These pages could delete 
+
+man_delete_people.html
+man_control_mul.html
+man_sort.html
+man_control_one.html
+frame/part2.html
+frame/explain/explain2.html
+
+oudin
+2016/2

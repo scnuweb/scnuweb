@@ -1,0 +1,199 @@
+#rt1{
+	background: -ms-linear-gradient(top, #F6FAFD,  #E3EDF7); 
+	background:-moz-linear-gradient(top,#F6FAFD,#E3EDF7);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#F6FAFD), to(#E3EDF7));
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F6FAFD), to(#E3EDF7));
+	background: -webkit-linear-gradient(top,#F6FAFD,#E3EDF7); 
+	background: -o-linear-gradient(top, #F6FAFD, #E3EDF7); 
+	height:34px;
+	width:100%;
+	margin-bottom: 12px;
+	border-bottom: 1px solid #B6CFED;
+
+}
+.vert1{
+	line-height: 34px;
+	padding-left: 30px;
+
+}
+.rfont{
+	font-size: 14px;
+	font-family:"微软雅黑";
+	font-weight: bold;
+
+}
+
+.table100{
+	width:100%;
+	border-collapse:collapse;
+	margin-bottom: 30px;
+}
+
+.replace{
+
+}
+
+
+
+#tt{
+	width:90%;
+	height:500px;
+
+
+}
+
+#open{
+	margin-left:20px;
+	display: none;
+}
+
+#rrr{
+	padding:10px;
+	font-family: "微软雅黑";
+
+}
+
+.rh{
+	width:100%;
+	height:30px;
+	line-height: 30px;
+	font-size:15px;
+	padding-left: 20px;
+	font-weight: bold;
+	border: 1px solid #ADD7FF;
+	margin-top:13px;
+
+	background: -ms-linear-gradient(top, #FFFFFF,  #D1ECFD); 
+	background:-moz-linear-gradient(top,#FFFFFF,#E3EDF7);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFFFFF), to(#D1ECFD));
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), to(#D1ECFD));
+	background: -webkit-linear-gradient(top,#F6FAFD,#D1ECFD); 
+	background: -o-linear-gradient(top, #FFFFFF, #D1ECFD); 
+}
+
+#select{	
+	border-bottom: 1px solid #ADD7FF;
+	border-left: 1px solid #ADD7FF;
+	border-right: 1px solid #ADD7FF;
+	text-align:center;
+	height: 35px;
+	line-height: 35px;
+	width:100%;
+	font-size: 15px;
+	margin-bottom: 13px;
+}
+#selectcontent{
+	width:400px;
+	height:25px;
+
+}
+.table100 td{
+	height:25px;
+	border: 1px solid #BBCDDF;
+	padding-left: 5px;
+}
+#load{
+	color:#186FD1;
+	text-decoration: underline;
+	display: inline-block;
+	margin-left: 30px;
+	font-size: 16px;
+}
+#next{
+	margin-top: 20px;
+	margin-right: 40px;
+	margin-left: 25%;
+}
+
+#inform{
+	width:90%;
+	margin:auto;
+	height: 120px;
+	border:1px solid black;
+}
+
+.w25{
+	height:25px;
+	width:25%;
+	border: 1px solid #BBCDDF;
+	padding-left: 5px;
+}
+.ed{   //该样式为输入框样式
+	width:100%;
+	height:100%;
+	padding-left: 5px;
+	border: none;
+	text-align: left;
+	padding-right: 5%;
+}
+
+#textImag{
+	margin-top: 10px;
+	width:100%;
+}
+
+.paper{
+	height:100%;
+	width:100%;
+	resize:none;
+}
+
+.scratch{
+	margin-bottom: 10px;
+	border: 1px solid gray;
+}
+
+
+
+/*弹出层的STYLE*/
+html,body 
+{
+	height:100%; 
+	margin:0px; 
+	font-size:12px;
+}
+
+.mydiv {
+background: -ms-linear-gradient(top, #F6FAFD,  #E3EDF7); 
+	background:-moz-linear-gradient(top,#F6FAFD,#E3EDF7);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#F6FAFD), to(#E3EDF7));
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F6FAFD), to(#E3EDF7));
+	background: -webkit-linear-gradient(top,#F6FAFD,#E3EDF7); 
+	background: -o-linear-gradient(top, #F6FAFD, #E3EDF7); 
+border: 1px solid #f90;
+text-align: center;
+line-height: 40px;
+font-size: 12px;
+font-weight: bold;
+z-index:99;
+width: 500px;
+height: 300px;
+left:50%;/*FF IE7*/
+top: 25%;/*FF IE7*/
+
+margin-left:-150px!important;/*FF IE7 该值为本身宽的一半 */
+margin-top:-60px!important;/*FF IE7 该值为本身高的一半*/
+
+margin-top:0px;
+
+position:fixed!important;/*FF IE7*/
+position:absolute;/*IE6*/
+
+}
+
+
+.bg {
+background-color: #ccc;
+width: 100%;
+height: 100%;
+left:0;
+top:0;/*FF IE7*/
+filter:alpha(opacity=50);/*IE*/
+opacity:0.5;/*FF*/
+z-index:1;
+
+position:fixed!important;/*FF IE7*/
+position:absolute;/*IE6*/
+
+/*The END*/
+
