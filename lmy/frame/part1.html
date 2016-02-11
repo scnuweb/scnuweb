@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>part1</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
+
+    <link rel="stylesheet" href="css/paper.css">
+
+  </head>
+  <style>
+  .tdT{
+        border: 1px solid #BBCDDF;
+    padding-left: 5px;
+    height:25px;
+}
+  </style>
+  <body onkeydown="if(event.keyCode==13){onclickEnter1('part1','ch1','ch2','ch3','ch4');}">
+    <div id="rt1">
+            <div class="vert1">
+                <span class="glyphicon glyphicon-list-alt">
+                &nbsp;
+                <a href="" class="rfont">补正</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+                <span class="glyphicon glyphicon-list-alt">
+                    &nbsp;
+                    <a href="" class="rfont">不予受理</a>
+                </span>
+            </div>
+        </div>
+
+        <div class="rh">选择办理事项</div>
+        <div id="select">选择办理事项：
+        	<select id="selectcontent">
+        		<option>变更自然人信息登记</option>
+          		<option>个人所得税申报</option>
+
+        	</select>
+        </div>
+        <div class="rh">确认纳税人登记情况</div>
+
+        <table class="table-bordered table100 tdT">
+        <tr>
+        	<td style="width:20%" class="tdT">纳税人识别号</td>
+        	<td style="width:30%" class="tdT">
+        		<input type="text" class="ed" id="need1">
+        	</td>
+        	<td class="tdT">纳税人名称</td>
+        	<td class="tdT">
+        		<input type="text" class="ed" id="question1">
+        	</td>
+        </tr>
+        <tr>
+            <td class="tdT">身份证类型</td>
+            <td class="tdT">
+            	<select id="selectcontent"  name="select1" style="width:100%;disabled='disabled'">
+          			<option>居民身份证</option>
+          			<option>其他</option>
+        		</select>
+        	</td>
+            <td class="tdT">身份证件号码</td>
+            <td class="tdT">
+                <input type="text" class="ed" id="question2" style="disabled='disabled'">
+            </td>
+        </tr>
+        </table>
+		
+        自然人登记信息：
+        <div id="inform">
+        
+        <table style="width:100%;height:120px;border:none;" class="tdT">
+        <tr>
+        	<td style="width:25%" class="tdT">纳税人识别号：</td>
+        	<td style="width:25%" class="tdT"><input type="text" id="ch1" class="ed"></td>
+        	<td style="width:25%" class="tdT">纳税人名称：</td>
+        	<td style="width:25%" class="tdT"><input type="text" id="ch2" class="ed"></td>
+        </tr>
+        <tr>
+        	<td class="tdT">身份证件类型</td>
+        	<td class="tdT"><input type="text" id="ch3" class="ed"></td>
+        	<td class="tdT">身份证件号：</td>
+        	<td class="tdT"><input type="text" id="ch4" class="ed"></td>
+        </tr>
+        <tr>
+        	<td class="tdT">出生日期</td>
+        	<td class="tdT"></td>
+        	<td class="tdT">性别</td>
+        	<td class="tdT"></td>
+        </tr>
+        <tr>
+        	<td class="tdT">国籍</td>
+        	<td class="tdT"></td>
+        </tr>
+            
+        </table>
+        </div>
+	
+            
+        <div class="rh">确认需要提交的材料列表</div>
+        <table class="table-bordered table100 tdT">
+        	<tr>
+        		<td style="width:8%" class="tdT">序号</td>
+        		<td style="width:44%" class="tdT">材料列表</td>
+        		<td style="width:12%" class="tdT">是否必报</td>
+        		<td style="width:12%" class="tdT">是否查验</td>
+        		<td style="width:12%" class="tdT">是否归档</td>
+        		
+        	</tr>
+        	<tr>
+        		<td>1</td>
+        		<td>自然人基础信息变更表</td>
+        		<td>是</td>
+        		<td>是</td>
+        		<td>是</td>
+        		<td><input type="checkbox" id="question3"></td>
+        	</tr>
+        	<tr>
+        		<td class="tdT">序号</td>
+        		<td class="tdT">材料列表</td>
+        		<td class="tdT">是否必报</td>
+        		<td class="tdT">是否查验</td>
+        		<td class="tdT">是否归档</td>
+        		<td class="tdT"><input type="checkbox" id="question4"></td></tr>
+        	<tr>
+        		<td class="tdT">序号</td>
+        		<td class="tdT">材料列表</td>
+        		<td class="tdT">是否必报</td>
+        		<td class="tdT">是否查验</td>
+        		<td class="tdT">是否归档</td>
+        		<td class="tdT"><input type="checkbox" id="question5"></td>
+        	</tr>
+        </table>
+        <div id="next">
+            <a href="#"  class="btn btn-success" data-toggle="modal" data-target="#part2" >下一步</a>
+        	
+        	<span id="load">个人税收管理系统打印组件下载</span>
+        </div>
+        
+        <div class="scratch">
+            <h5>说明框</h5>
+            <textarea class="paper" id="question6"></textarea>
+        </div> 
+
+        <!--popDiv-->
+    <div class="modal fade" id="popDiv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">考试要求</h4>
+                </div>
+                <div class="modal-body">
+                  <span class="rh">变更中国大陆公民（包括华侨）信息成功</span>
+                    <br>
+                    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#show_print"  data-dismiss="modal">下一步</a>
+            
+            
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!--show_print-->
+    <div class="modal fade" id="show_print" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">考试要求</h4>
+                </div>
+                <div class="modal-body">
+                 <table class="rh">
+                <tr>
+                    <td width="25%">纳税人识别号：</td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td>中文姓名：</td>
+                    <td></td>
+                    <td>英文姓名:</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>证件类型：</td>
+                    <td></td>
+                    <td>证件号码：</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <table class="table100 rh">
+                <tr>
+                    <td>变更项目</td>
+                    <td>变更前内容</td>
+                    <td>变更后内容</td>
+                </tr>
+                <tr>
+                    <td>？</td>
+                    <td>？</td>
+                    <td>？</td>
+                </tr>
+            </table>
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#finish"  data-dismiss="modal" >打印</a>
+            <input type="button" class="btn btn-success" onclick="hidePopup('show_print','bg');" value="取消"/>
+            
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!--finish-->
+    <div class="modal fade" id="finish" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">考试要求</h4>
+                </div>
+                <div class="modal-body">
+                        
+                       <h4>测试完成！</h4>
+            <button class="btn btn-success"  data-dismiss="modal">完成</button>
+            
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+        <!--part2-->
+        <div class="modal fade" id="part2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    
+                </div>
+                <div class="modal-body">
+                  <div id="rt1">
+                <div class="vert1">
+                    <span class="glyphicon glyphicon-list-alt">
+                    &nbsp;
+                    <a href="" class="rfont">补正</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <span class="glyphicon glyphicon-list-alt">
+                        &nbsp;
+                        <a href="" class="rfont" style="width:200px;">不予受理</a>
+                    </span>
+                    <a href="#"  class="btn btn-primary" style="margin-left:80%;margin-top:10px;" data-toggle="modal" data-target="#part2_speak" >题目要求</a>
+                    
+                </div>
+        </div>
+        <div>
+            <h3 class="rh">中国大陆公民（包括侨胞）基础信息登记表</h3>
+            <table class="table-bordered table100">
+                <tr>
+                    <td style="width:25%">自然人姓名（中文）：</td>
+                    <td style="width:25%">
+                        <input type="text" class="ed" id="question1" value="" style="width:200px;height:25px;">
+                    </td>
+                    <td style="width:25%">性别：</td>
+                    <td style="width:25%">
+                        <div class="check-group" id="question2">
+                            男<input type="radio" name="radiobutton"  value="man">
+                            女<input type="radio" name="radiobutton" value="woman">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:25%">自然人姓名（英文）</td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td>身份证类型：</td>
+                    <td>
+                        <select id="select_paper" style="width:100%">
+                            <option>居民身份证</option>
+                            <option>其他</option>
+                        </select>
+                    </td>
+                    <td>身份证证件号码</td>
+                        
+                    <td>
+                        <input type="text" class="ed" id="question3" value="" style="width:200px;height:25px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>自然人使用的其他证件类型</td>
+                    <td>
+                        <select id="select_paper_kind" style="width:100%">
+                            <option>-请选择-</option>
+                            <option>军官证</option>
+                        </select>
+                    </td>
+                    <td>自然人使用的其他证件号码</td>
+                    <td>
+                        <input type="text" class="ed" id="num_else" value="" style="width:200px;height:25px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>纳税人识别号</td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td  colspan="4">有效联系电话(”移动电话“与”固定电话”请至少填写一项)</td>
+                </tr>
+                <tr>
+                    <td>移动电话号码</td>
+                    <td>
+                         <input type="text" class="ed" id="question4" value="" style="width:200px;height:25px;">
+                    </td>
+                    <td>固定电话号码</td>
+                    <td>
+                        <input type="text" class="ed" id="phone_num" value="" style="width:200px;height:25px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>电子邮箱</td>
+                    <td colspan="3">
+                        <input type="text" class="ed" id="email" value="" style="width:200px;height:25px;">
+                    </td>
+                </tr>
+            </table>            
+        </div>
+
+        <div id="next">
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#popDiv"  data-dismiss="modal">提交</a>
+            <button id="question5" class="btn btn-success">打印变更表</button>
+        </div>
+       
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+<!--题目要求-->
+    <div class="modal fade" id="part2_speak" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">考试要求</h4>
+                </div>
+                <div class="modal-body">
+                         <div id="textImag">
+            <div class="rh">考试要求</div>
+            <table class="table100">
+                <tr>
+                    <td style="width:10%">题号</td>
+                    <td style="width:90%">要求</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>请输入张三的信息(身份证号为：123456，手机号为：12345678901，性别为：男)</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>请根据正确流程操作本系统</td>
+                </tr>
+            </table>
+            
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    
+                      
+    <script type="text/javascript" src="js/man.js"></script>
+    <script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="frame/easyui/jquery.easyui.min.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/zDrag.js"></script>
+    <script type="text/javascript" src="js/zDialog.js"></script>
+    <script>
+    	//alert("请根据正确流程操作此模块，系统会记录操作过程正确与否评分");
+    </script>
+  </body>
+</html>

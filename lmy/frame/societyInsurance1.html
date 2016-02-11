@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>社保</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="金税三期" />
+<style>
+    .table100{
+        width:100%;
+        border-collapse:collapse;
+        margin-bottom: 30px;
+    }
+    .table100 td{
+    height:25px;
+    border: 1px solid #BBCDDF;
+    padding-left: 5px
+    }
+    .ed{
+    width:100%;
+    height:100%;
+    border: none;
+    padding-left: 10px;
+    text-align: left
+}
+}
+</style>
+<script>
+	function getCurDate()
+	{
+	 var d = new Date();
+	 var week;
+	 var years = d.getFullYear();
+	 var month = add_zero(d.getMonth()+1);
+	 var days = add_zero(d.getDate());
+	 var ndate = years+"年"+month+"月"+days+"日 ";
+	 var dDate=years+"年"+month+"月";
+	 divT.innerHTML= ndate;
+	 divD.innerHTML=dDate;
+	}
+
+	function add_zero(temp)
+	{
+	 if(temp<10) return "0"+temp;
+	 else return temp;
+	}
+
+	setInterval("getCurDate()",100);
+</script>
+</head>
+    <body>
+    	<div>
+    		<h5 style="margin-left:25%;">社保费（单位）申报辅助软件--V4.2.5</h5>
+    	</div>
+    	<div id="buttonDiv">
+                <div>
+    		<button name="btn1">
+    			清空
+    		</button>
+    		<button name="btn2">
+    			查找
+    		</button>
+    		<button name="btn3">
+    			保存
+    		</button>
+    		<button name="btn4">
+    			删除
+    		</button>
+                     <select name="cho">
+                         <option value="1">增减员</option>
+                         <option value="2">邮费工资缴纳事报</option>
+                         <option value="3">缴费基数调整</option>
+                         <option value="4">补充申报</option>
+                     </select>
+    		<button name="btn5">
+    			生成报查
+    		</button>
+    		<button  name="btn6">
+    			身份证性别校验
+    		</button>
+    		<button name="btn7">
+    			校验教师
+    		</button>
+    		<button name="btn8">
+    			导出缴费明细
+    		</button>
+    		<button  name="btn9">
+    			导入中间数据
+    		</button>
+    		<button  name="btn10">
+    			导出个人社保号
+    		</button>
+    		<button  name="btn11">
+    			恢复
+    		</button>
+                     <button name="btn12">
+    			备份
+    		</button>
+        </div>
+        <div>
+    		<br/>
+    		<small style="margin-left:20px;">社保管理机构</small>
+    		<input type="text" name="place" value="梅江区" />
+    		<small>社保费所属期：</small>
+		<span id="divD"></span>
+		&nbsp;
+		<small style="margin-left:30px;">申报日期：</small>
+		<span id="divT"></span>
+		<button style="margin-left:360px;" name="btn13">复位</button>
+        </div>
+        <div>
+                     <br />
+                     <span >单位：</span>
+                     <span>梅州新广丰商贸有限公司</span>
+                     <span style="margin-left:100px;">纳税人识别号：</span>
+                     <span>441402314920870</span>
+                     <span style="margin-left:100px;">单位社保号：</span>
+                     <span>1401050498</span>
+    	</div>
+         <div>
+             <table class="table-bordered table100">
+                <tr>
+                    <td rowspan="2">变动</td>
+                    <td rowspan="2">个人社保号</td>
+                    <td rowspan="2">姓名</td>
+                    <td rowspan="2">身份证号码</td>
+                    <td rowspan="2">身份证明类别</td>
+                    <td rowspan="2">性别</td>
+                    <td rowspan="2">人员类别</td>
+                    <td rowspan="2">用工形式</td>
+                    <td rowspan="2">户籍类型</td>
+                    <td rowspan="2">人员状态</td>
+                    <td colspan="2";>
+                        <select name="cho1">
+                            <option value="1">基本养老保险</option>
+                            <option value="2">个体养老保险</option>
+                            <option value="3">机关事业（金融）养老保险</option>
+                            <option value="4">机关事业（非金融）养老保险</option>
+                            <option value="5">企业养老保险</option>
+                            <option value="6">村、镇养老保险</option>
+                        </select>
+                    </td>
+                    <td colspan="2";>
+                        <select name="cho2">
+                            <option value="1">工伤保险</option>
+                            <option value="2">机关工伤保险</option>
+                            <option value="3">企业工伤保险</option>
+                        </select>
+                    </td>
+                    <td colspan="2";>
+                        <select name="cho3">
+                            <option value="1">农民工业保险</option>
+                            <option value="2">城镇工业保险</option>
+                        </select>
+                    </td>
+                    <td colspan="2";>
+                        <select name="cho4">
+                            <option value="1">基本医疗保险</option>
+                            <option value="2">企业基本医疗保险（在职）</option>
+                            <option value="3">待定</option>
+                            <option value="4">待定</option>
+                        </select>
+                    </td>
+                    <td colspan="2";>
+                        <select name="cho5">
+                            <option value="1">补充基本医疗保险</option>
+                            <option value="2">退休人员一次性保险</option>
+                        </select>
+                    </td>
+                    <td colspan="2";>
+                        <select name="cho6">
+                            <option value="1">生育保险</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>工资 薪金</td>
+                    <td>缴费基数</td>
+                    <td>工资 薪金</td>
+                    <td>缴费基数</td>
+                    <td>工资 薪金</td>
+                    <td>缴费基数</td>
+                    <td>工资 薪金</td>
+                    <td>缴费基数</td>
+                    <td>工资 薪金</td>
+                    <td>缴费基数</td>
+                    <td>工资 薪金</td>
+                    <td>缴费基数</td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="cho7" >
+                            <option value="1">增员</option>
+                            <option value="2">减员</option>
+                            <option value="3">正常</option>
+                            <option value="4">调整</option>
+                            <option value="5">变更个人</option>
+                        </select>
+                    </td>
+                    <td>
+                         <input type="text" class="ed" value="" style="width:50px" name="write"/>
+                    </td>
+                    <td>
+                         <input type="text" class="ed" value="" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                        <input type="text" class="ed" value="" style="width:80px;" name="write" />
+                    </td>
+                    <td>
+                        <select name="cho8">
+                            <option value="1">身份证</option>
+                            <option value="2">城镇</option>
+                            <option value="3">通行证</option>
+                            <option value="4">医乡证</option>
+                            <option value="5">台胞证</option>
+                            <option value="6">旅行证</option>
+                            <option value="7">军官证</option>
+                            <option value="8">学籍证</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="cho9">
+                            <option value="1">男</option>
+                            <option value="2">女</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="cho10">
+                            <option value="1">公务员</option>
+                            <option value="2">个人</option>
+                            <option value="3">干部</option>
+                            <option value="4">农民</option>
+                            <option value="5">工人</option>
+                            <option value="6">其它</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="cho11">
+                            <option value="1">干部</option>
+                            <option value="2">全民</option>
+                            <option value="3">集体</option>
+                            <option value="4">合同</option>
+                            <option value="5">零工</option>
+                            <option value="6">个体</option>
+                            <option value="7">其它</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="cho12">
+                            <option value="1">城镇户口</option>
+                            <option value="2">农村户口</option>
+                            <option value="3">其它</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="cho13">
+                            <option value="1">就业</option>
+                            <option value="2">退休</option>
+                        </select>
+                    </td>
+                    <td style="width:10px">
+                        <input type="text" class="ed" value="" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                         <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                         <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                         <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                         <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                         <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                         <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                         <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                        <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                        <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                        <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <td>
+                        <input type="text" class="ed" style="width:80px" name="write"/>
+                    </td>
+                    <!-- data-->
+                </tr>
+                <tr>
+                    <td colspan=2>变动原因</td>
+                    <td>国籍</td>
+                    <td colspan=7>
+                        单位个人应缴社保费 小计：
+                       <span id="cal1"></span>
+                    </td>
+                    <td colspan=2>
+                        <span name="cal2"></span>
+                    </td>
+                    <td colspan=2>
+                        <span name="cal3"></span>
+                    </td>  
+                    <td colspan=2>
+                        <span name="cal4"></span>
+                    </td>  
+                    <td colspan=2>
+                        <span name="cal5"></span>
+                    </td>  
+                    <td colspan=2>
+                        <span name="cal6"></span>
+                    </td>
+                    <td colspan=2>
+                        <span name="cal7"></span>
+                    </td>                  
+                </tr>
+                <tr>
+                     <td colspan=2 >
+                        <select name="cho14">
+                            <option value="1">11|新参保</option>
+                            <option value="2">待定</option>
+                            <option value="3">待定</option>
+                            <option value="4">待定</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="cho15">
+                            <option value="1">156|中</option>
+                            <option value="2">待定</option>
+                            <option value="3">待定</option>
+                        </select>
+                    </td>
+                    <td></td>
+                    <td colspan="6">
+                        <span>跳转</span>
+                        <input type="text" style="border:none;text-decoration:underline;margin-left:20px;" value="                          " />
+                        <span>记录</span>
+                        <button>Go</button>
+                    </td>
+                </tr>
+             </table>
+             <button name="btn14" style="margin-left:50px;">统计</button>
+             <button name="btn15" style="margin-left:50px;">|<</button>
+             <button name="btn16"><</button>
+             <button name="btn17">></button>
+             <button name="btn18">>|</button>
+         </div>
+        </div>
+        <div>
+            <button name="btn19" style="margin-top:20px;" onclick="window.open('./societyInsurance2.html','_self');">变动表</button>
+        </div>
+
+    </body>
+     <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</html>
