@@ -5,70 +5,50 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="金税三期" />
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/man.css">
-<link rel="stylesheet" type="text/css" href="frame/easyui/themes/default/easyui.css">
-<style>
-    .ini_t{
-    border: 1px solid #BBCDDF;
-    padding-left: 5px;
-    height:25px;
+	<link rel="stylesheet" href="css/man.css">
+		<link rel="stylesheet" type="text/css"
+			href="frame/easyui/themes/default/easyui.css">
+			<style>
+.ini_t {
+	border: 1px solid #BBCDDF;
+	padding-left: 5px;
+	height: 25px;
 }
 </style>
-<script>
-  function openDia(address,name)
-    {
-       var diag = new Dialog();
-       diag.Width = 900;
-       diag.Height = 400;
-       diag.Title = name;
-       diag.URL = address;
-       diag.show();
-    }
-</script>
 </head>
-    <body>
-    	<div title="考试列表" id="rrr">
-            <h6 class="rh">考核信息列表 </h6>
-            <div id="choose">
-    			<button class="btn btn-danger" onClick="window.location='search_grade.html'">
-    				查詢成績
-    			</button>
-              
-    		</div>
-    		<table class="table100 ini_t">
-    			<tr>
-    			    <th class="ini_t" style="width='20%';">考试编号</th>
-    				<th class="ini_t" style="width='20%';">考试名称</th>
-    				<th class="ini_t" style="width='30%';">考试开始时间</th>
-    				<th class="ini_t" style="width='30%';">考试结束时间</th>
-    				<th class="ini_t" style="width='30%';">考试状态</th>
-             		<th class="ini_t" style="width='30%';">考试地点</th>
-    			</tr>
-    			<#list examList as exam>
-    			<tr>
-    				<td class="ini_t" >${exam.id?if_exists}</td>
-    				<td class="ini_t" >${exam.examName?if_exists}</td>
-    				<td class="ini_t" >${exam.startTime?if_exists?string("yyyy-MM-DD HH:mm:ss")}</td>
-    				<td class="ini_t" >${exam.endTime?if_exists?string("yyyy-MM-DD HH:mm:ss")}</td>
-    				<td class="ini_t" >
-    					<#if exam.startTime?long gt nowDate?long>
-    						未开始
-    					<#elseif exam.endTime?long lt nowDate?long>
-    						已结束
-    					<#else>
-    						正在进行
-    					</#if>
-    				</td>
-                    <td class="ini_t" >
-                      		  无数据
-                    </td>
-    			</tr>
-    			</#list>
-    		</table>     
-    	</div>
-    <script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
-    <script type="text/javascript" src="js/zDrag.js"></script>
-    <script type="text/javascript" src="js/zDialog.js"></script>
-    <script type="text/javascript" src="js/man.js"></script>
-    </body>
+<body>
+	<div title="考试列表" id="rrr">
+		<h6 class="rh">考核信息列表</h6>
+		<table class="table100 ini_t">
+			<tr>
+				<th class="ini_t" style="">考试名称</th>
+				<th class="ini_t" style="">考试开始时间</th>
+				<th class="ini_t" style="">考试结束时间</th>
+				<th class="ini_t" style="">考试状态</th>
+			</tr>
+			<#list examList as exam>
+			<tr>
+				<td class="ini_t">${exam.examName?if_exists}</td>
+				<td class="ini_t">${exam.startTime?if_exists?string("yyyy-MM-DD
+					HH:mm:ss")}</td>
+				<td class="ini_t">${exam.endTime?if_exists?string("yyyy-MM-DD
+					HH:mm:ss")}</td>
+				<td class="ini_t"><#if exam.startTime?long gt nowDate?long> 未开始
+					<#elseif exam.endTime?long lt nowDate?long> 已结束
+					<button class="btn btn-info choose_btn"
+						onclick="window.location='search_grade.html?examId=${exam.id?if_exists}'">查询成绩</button>
+					<#else> 在进行
+					<button class="btn btn-info choose_btn"
+						onclick="window.location='join_exam.html?examId=${exam.id?if_exists}'">进入考试</button>
+					</#if>
+				</td>
+			</tr>
+			</#list>
+		</table>
+	</div>
+	<script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="js/zDrag.js"></script>
+	<script type="text/javascript" src="js/zDialog.js"></script>
+	<script type="text/javascript" src="js/man.js"></script>
+</body>
 </html>

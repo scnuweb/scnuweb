@@ -27,8 +27,8 @@
 		<property name="adminUsername" value="admin" />
 		<property name="adminPassword" value="admin" />
 	</bean>
-	
-	
+
+
 	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClassName}" />
@@ -58,7 +58,7 @@
 		<!-- 连接超时时间，单位毫秒 -->
 		<property name="connectionTimeout" value="10000" />
 	</bean>
-	
+
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
@@ -128,7 +128,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 
 
 </beans>

@@ -37,6 +37,13 @@
 		</pluginRepository>
 	</pluginRepositories>
 	<dependencies>
+	
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-resources-plugin</artifactId>
+			<version>2.4.3</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -233,17 +240,17 @@
 			<version>4.0.7</version>
 		</dependency>
 		<dependency>
-	      <groupId>commons-io</groupId>
-		  <artifactId>commons-io</artifactId>
-	      <version>1.4</version>
-	    </dependency>
-	    <dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
 			<groupId>net.coobird</groupId>
 			<artifactId>thumbnailator</artifactId>
 			<version>0.4.8</version>
 		</dependency>
 
-				
+
 	</dependencies>
 
 	<build>
@@ -265,10 +272,10 @@
 						<stopKey>foo</stopKey>
 						<stopPort>8088</stopPort>
 						<connectors>
-			                <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-			                    <port>8080</port>
-			                </connector>
-			            </connectors> 
+							<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+								<port>8080</port>
+							</connector>
+						</connectors>
 					</configuration>
 					<executions>
 						<execution>
@@ -293,6 +300,6 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		
+
 	</build>
 </project>

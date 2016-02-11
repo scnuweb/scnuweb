@@ -1,5 +1,9 @@
 package com.scnuweb.action;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +31,7 @@ public class CandidateController {
 	private ExamGradeService examGradeService;
 	@Autowired
 	private ExamService examService;
-	
+
 	private User currUser;
 
 	@RequestMapping("index")
@@ -45,6 +49,18 @@ public class CandidateController {
 	@RequestMapping("candidate_assessment")
 	public String candidateAssessment(ModelMap modelMap, HttpServletRequest request) {
 		List<Exam> examList = examService.getExamByUser(currUser.getId());
+		Collections.sort(examList, new Comparator<Exam>() {
+
+			@Override
+			public int compare(Exam e1, Exam e2) {
+				Date t1 = e1.getEndTime();
+				Date t2 = e2.getEndTime();
+				if (t1.after(t2)) {
+					return -1;
+				}
+				return 1;
+			}
+		});
 		Date nowDate = new Date();
 		modelMap.put("examList", examList);
 		modelMap.put("nowDate", nowDate);
@@ -52,9 +68,20 @@ public class CandidateController {
 	}
 
 	@RequestMapping("search_grade")
-	public String searchGrade(ModelMap modelMap, HttpServletRequest request) {
-	//	List<ExamGrade> gradeList = examGradeService.getExamGradeById(examGradeId);
+	public String searchGrade(ModelMap modelMap, HttpServletRequest request, long examId) {
+		ExamGrade examGrade = examGradeService.getExamGrade(examId, currUser.getId());
+		modelMap.put("user", currUser);
+		if (examGrade != null) {
+			modelMap.put("examGrade", examGrade);
+			modelMap.put("exam", examGrade.getExam());
+		}
 		return "search_grade";
+
+	}
+
+	@RequestMapping("join_exam")
+	public String joinExam(ModelMap modelMap, HttpServletRequest request, long examId) {
+		return "join_exam";
 
 	}
 
