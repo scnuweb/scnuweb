@@ -27,10 +27,12 @@ table td {
 		</tr>
 		<tr>
 
-			<td>${user.username?if_exists}</td> <#if examGrade ?if_exists>
-			<td>${exam.examName?if_exists}</td>
-			<td>${exam.endTime?if_exists}</td>
-			<td>${examGrade.grade?if_exists}</td> </#if>
+			<td>${user.username?if_exists}</td>
+			<td><#if exam ?if_exists> ${exam.examName?if_exists}</#if></td>
+			<td><#if exam ?if_exists>
+				${exam.endTime?if_exists?string("yyyy-MM-DD HH:mm:ss")}</#if></td>
+			<td><#if examGrade ?if_exists>
+				${examGrade.grade?if_exists}</#if></td>
 			<!-- <td rowspan=2>
                         <input id="avg" type="text" class="ed" style="width:100%;height:100%;"/>
                     </td> -->
