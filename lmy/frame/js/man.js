@@ -43,14 +43,29 @@ var maxTime=60*60;
 }
 timer = setInterval("countdown()",1000); 
 
+function changeHide(type1,type2)
+{
+  var show=document.getElementById(type1);
+  var hide=document.getElementById(type2);
+  show.style.display='block';
+  hide.style.display='none';
+}
 
  
 function hide(type)
    {
       var temp=document.getElementById("man");
       var temp2 = document.getElementById("manO");
-  
-       if(type=="paper")
+      var temp3=document.getElementById("needH");
+        if(type=="needH")
+        {
+           temp3.style.display='block';
+      }
+      else
+      {
+        temp3.style.display='none';
+
+        if(type=="paper")
       {
          temp.style.display='block';
       }
@@ -74,6 +89,9 @@ function hide(type)
       {
         temp2.style.display='none';
       }
+      }
+
+       
    }
 
    function openDia(address,name)
@@ -100,6 +118,9 @@ function hide(type)
        diag.show();
     }
   
+
+
+
   function onclickEnter1(text1,ch1,ch2,ch3,ch4)
   {
 
@@ -120,8 +141,24 @@ function hide(type)
     }
     if(text1=="part2")
     {
-      alert("part2");
+    
        var c1=document.getElementById("need1");
+      //t1.value=c1.value;
+      c1=document.getElementById("question1");
+      t2.value = c1.value;
+      c1=document.getElementsByName("select1");
+      t3.value=c1[0].value;
+      c1=document.getElementById("question2");
+      t4.value=c1.value;
+    }
+    if(text1=="part3")
+    {
+      var saveO=document.getElementById("ch5_3");
+      saveO.value="123456457";
+      var saveN=document.getElementById("saveN");
+      var chg=document.getElementById("ch6_3");
+      chg.value=saveN.value;
+      var c1=document.getElementById("need1");
       t1.value=c1.value;
       c1=document.getElementById("question1");
       t2.value = c1.value;
@@ -130,6 +167,14 @@ function hide(type)
       c1=document.getElementById("question2");
       t4.value=c1.value;
     }
+    if(text1=="part4")
+    {
+      var saveO=document.getElementById("ch5_3");
+      saveO.value="123456457";
+      var saveN=document.getElementById("saveN");
+      var chg=document.getElementById("ch6_3");
+      chg.value=saveN.value;
+       }
     
   }
 
