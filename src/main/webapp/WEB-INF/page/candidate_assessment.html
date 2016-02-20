@@ -29,9 +29,9 @@
 			<#list examList as exam>
 			<tr>
 				<td class="ini_t">${exam.examName?if_exists}</td>
-				<td class="ini_t">${exam.startTime?if_exists?string("yyyy-MM-DD
+				<td class="ini_t">${exam.startTime?if_exists?string("yyyy-MM-dd
 					HH:mm:ss")}</td>
-				<td class="ini_t">${exam.endTime?if_exists?string("yyyy-MM-DD
+				<td class="ini_t">${exam.endTime?if_exists?string("yyyy-MM-dd
 					HH:mm:ss")}</td>
 				<td class="ini_t"><#if exam.startTime?long gt nowDate?long> 未开始
 					<#elseif exam.endTime?long lt nowDate?long> 已结束
