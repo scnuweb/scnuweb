@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ziranrenduozheng.css">
+    <style>
+    *{
+        font-family: "微软雅黑";
+    }
+    a,a:hover,a:link,a:visited,a:active{
+        text-decoration:none;
+        outline:none;
+    }
+    </style>
+    </head>
+    <body>
+    <div id="header">
+    <img src="img/t1.png" alt="">
+    <img src="img/t2.png" alt="" id="t2"><br>
+    <a href="" id="f1">保存启动</a>
+    <a href="" id="f2">推送</a>  
+    </div>
+    <div id="title">自然人多证同用情况调查及申请表</div>
+    <table class="table100">
+        <tr>
+            <td colspan="1"><input type="checkbox"></td>
+            <td colspan="3">纳税人识别号</td>
+            <td colspan="1">姓名</td>
+            <td colspan="2">身份证类型</td>
+            <td colspan="3">身份证号码</td>
+            <td colspan="1">操作</td>
+        </tr>
+        <tr>
+            <td colspan="1"><input type="checkbox"></td>
+            <td colspan="3"><input type="text" class="ed"></td>
+            <td colspan="1"><input type="text" class="ed"></td>
+            <td colspan="2"><input type="text" class="ed"></td>
+            <td colspan="3"><input type="text" class="ed"></td>
+            <td colspan="1"><a href="">新增</a>&nbsp;&nbsp;&nbsp;<a href="">删除</a></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="height:240px;">*调查情况说明</td>
+            <td colspan="8"><textarea name="" id="" class="edt"> </textarea></td>
+        </tr>
+        <tr>
+            <td colspan="3">*调查结果</td>
+            <td colspan="8"><input type="radio" name="shuyu">属于多证同用&nbsp;&nbsp;&nbsp;<input type="radio" name="shuyu">不属于多证同用</td>
+        </tr>
+        <tr>
+            <td colspan="2">*调查人</td>
+            <td colspan="1">胡梅</td>
+            <td colspan="4">*调查税务机关</td>
+            <td colspan="4">北培区局城区一所</td>
+        </tr>
+
+    </table>
+    <script>
+    var f2=document.getElementById('f2');
+    f2.onclick=function(){
+        window.open("dialog/tuisong.html", "newwindow", "height=400, width=620, channelmode=no, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no, top=300, left=300");
+    }
+    var f1=document.getElementById('f1');
+    f1.onclick=function(){
+        alert("保存成功！");
+    }
+
+    </script>
+    </body>
+</html>

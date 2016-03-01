@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 
 import com.scnuweb.entity.Exam;
 import com.scnuweb.entity.ExamGrade;
+import com.scnuweb.entity.ExamItem;
 import com.scnuweb.entity.User;
 import com.scnuweb.service.ExamGradeService;
 import com.scnuweb.service.ExamService;
@@ -81,8 +82,20 @@ public class CandidateController {
 
 	@RequestMapping("join_exam")
 	public String joinExam(ModelMap modelMap, HttpServletRequest request, long examId) {
+		User candidate = (User) request.getSession().getAttribute("currentUser");
+		if(candidate==null) {
+			return "redirect:/login";
+		}
+		candidate = userService.getUserById(candidate.getId());
+		List<Exam> examList = candidate.getExams();
+		Exam exam = examService.getExamById(examId);
+		if(exam==null||!examList.contains(exam)) {
+			return "redirect:/index";
+		}
+		List<ExamItem> examItemList = exam.getExamItems();
+		modelMap.put("examItemList", examItemList);
+		modelMap.put("exam", exam);
 		return "join_exam";
-
 	}
-
+	
 }

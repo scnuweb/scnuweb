@@ -38,8 +38,8 @@
 					<button class="btn btn-info choose_btn"
 						onclick="window.location='search_grade.html?examId=${exam.id?if_exists}'">查询成绩</button>
 					<#else> 在进行
-					<button class="btn btn-info choose_btn"
-						onclick="window.location='join_exam.html?examId=${exam.id?if_exists}'">进入考试</button>
+					<a class="btn btn-info choose_btn"
+						onclick="parent.location='join_exam.html?examId=${exam.id?if_exists}'">进入考试</a>
 					</#if>
 				</td>
 			</tr>

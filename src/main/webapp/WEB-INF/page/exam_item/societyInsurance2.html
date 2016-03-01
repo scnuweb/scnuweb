@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>社保</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="金税三期" />
+<style>
+    .table100{
+        width:100%;
+        border-collapse:collapse;
+        margin-bottom: 30px;
+    }
+    .table100 td{
+    height:25px;
+    border: 1px solid #BBCDDF;
+    padding-left: 5px
+    }
+    .ed{
+    width:100%;
+    height:100%;
+    border: none;
+    padding-left: 10px;
+    text-align: left
+}
+</style>
+
+<script>
+	function getCurDate()
+	{
+	 var d = new Date();
+	 var week;
+	 var years = d.getFullYear();
+	 var month = add_zero(d.getMonth()+1);
+	 var days = add_zero(d.getDate());
+	 var ndate = years+"年"+month+"月"+days+"日 ";
+	 var dDate=years+"年"+month+"月";
+	divT.innerHTML= ndate;
+	 //divD.innerHTML=dDate;
+	}
+
+	function add_zero(temp)
+	{
+	 if(temp<10) return "0"+temp;
+	 else return temp;
+	}
+
+	setInterval("getCurDate()",100);
+</script>
+</head>
+    <body>
+    	<div>
+		<button style="margin-left:30px">首页</button>
+		<button style="margin-left:30px">上一页</button>
+		<button style="margin-left:30px">下一页</button>
+		<button style="margin-left:30px">末页</button>
+    	</div>
+    	<div>
+    		<h4 style="margin-left:40%;">参加社会保险人员增、减申报表</h4>
+
+    		<span style="margin-left:40%;">填报日期</span>
+    		<span style="margin-left:60px;">共1页</span>
+    		<span style="margin-left:60px;">第1页</span>
+    		<span id="divT"></span>
+    	</div>
+    	<div>
+    		<table class="table100">
+    			<tr>
+    				<td rowspan="2">姓名</td>
+    				<td>社会保障号</td>
+    				<td rowspan="2">民族</td>
+    				<td rowspan="2">户口性质</td>
+    				<td rowspan="2">个人身份</td>
+    				<td rowspan="2">参加工作年月</td>
+    				<td rowspan="2">变动类型</td>
+    				<td rowspan="2">变动原因</td>
+    				<td colspan="5">参加保险种（打x）</td>
+    				<td rowspan="2">缴费工程</td>
+    				<td rowspan="2" >是否财政底层工程</td>
+    				<td rowspan="2">财政统发工资</td>
+    			</tr>
+    			<tr>
+    				<td>身份证号</td>
+    				<td>养老</td>
+    				<td>工资</td>
+    				<td>失业</td>
+    				<td>医疗</td>
+    				<td>生命</td>
+    			</tr>
+    			<tr name="row1">
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    			</tr>
+    		</table>
+    	</div>
+    	<button name="back" onclick="window.open('./societyInsurance1.html','_self');">返回</button>
+    </body>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</html>

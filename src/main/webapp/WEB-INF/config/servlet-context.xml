@@ -113,4 +113,12 @@
     <mvc:resources mapping="/candidate/html/**" location="/WEB-INF/page/html/" />
     <mvc:resources mapping="/candidate/img/**" location="/WEB-INF/page/img/" />
     <mvc:resources mapping="/candidate/js/**" location="/WEB-INF/page/js/" />
+    
+    <mvc:resources mapping="/exam/css/**" location="/WEB-INF/page/exam_item/css/" />
+    <mvc:resources mapping="/exam/fonts/**" location="/WEB-INF/page/exam_item/fonts/" />
+    <mvc:resources mapping="/exam/html/**" location="/WEB-INF/page/exam_item/html/" />
+    <mvc:resources mapping="/exam/img/**" location="/WEB-INF/page/exam_item/img/" />
+    <mvc:resources mapping="/exam/js/**" location="/WEB-INF/page/exam_item/js/" />
+    <mvc:resources mapping="/exam/frame/easyui/**" location="/WEB-INF/page/exam_item/easyui/" />
+    
 </beans>

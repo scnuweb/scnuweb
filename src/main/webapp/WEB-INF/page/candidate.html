@@ -30,7 +30,7 @@
                 <div class="leftside">
                     <span id="function">功能列表</span>
                     <div class="leftsidecontent">
-                        <button class="btn btn-primary menul" onclick="addTab('考核系统','./candidate_assessment.html');return false;">
+                        <button id="show-exam-btn" class="btn btn-primary menul" onclick="addTab('考核系统','./candidate_assessment.html');return false;">
                             <span class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;考核系统
                         </button>
                     </div>
@@ -54,5 +54,10 @@
   <script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
   <script type="text/javascript" src="frame/easyui/jquery.easyui.min.js"></script>
   <script type="text/javascript" src="js/man.js"></script>
+  <script type="text/javascript">
+  	$(document).ready(function() {
+  		$("#show-exam-btn").click();
+  	});
+  </script>
   </body>
 </html>

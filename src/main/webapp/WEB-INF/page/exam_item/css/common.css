@@ -1,0 +1,75 @@
+#rt1{
+	background: -ms-linear-gradient(top, #F6FAFD,  #E3EDF7); 
+	background:-moz-linear-gradient(top,#F6FAFD,#E3EDF7);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#F6FAFD), to(#E3EDF7));
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F6FAFD), to(#E3EDF7));
+	background: -webkit-linear-gradient(top,#F6FAFD,#E3EDF7); 
+	background: -o-linear-gradient(top, #F6FAFD, #E3EDF7); 
+	height:34px;
+	width:100%;
+		margin-bottom: 12px;
+	border-bottom: 1px solid #B6CFED;
+}
+.vert1{
+	line-height: 34px;
+	padding-left: 30px;
+
+}
+.rfont{
+	font-size: 14px;
+	font-family:"微软雅黑";
+	font-weight: bold;
+
+}
+
+.rh{
+	width:100%;
+	height:30px;
+	line-height: 30px;
+	font-size:15px;
+	padding-left: 20px;
+	font-weight: bold;
+	border: 1px solid #ADD7FF;
+	margin-top:13px;
+
+	background: -ms-linear-gradient(top, #FFFFFF,  #D1ECFD); 
+	background:-moz-linear-gradient(top,#FFFFFF,#E3EDF7);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFFFFF), to(#D1ECFD));
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), to(#D1ECFD));
+	background: -webkit-linear-gradient(top,#F6FAFD,#D1ECFD); 
+	background: -o-linear-gradient(top, #FFFFFF, #D1ECFD); 
+}
+.common{
+	border-bottom: 1px solid #ADD7FF;
+	border-left: 1px solid #ADD7FF;
+	border-right: 1px solid #ADD7FF;
+	height: 35px;
+	line-height: 35px;
+	font-size: 15px;
+	margin-bottom: 13px;
+}
+.table100{
+	width:100%;
+	border-collapse:collapse;
+	margin-bottom: 30px;
+}
+.table100 td{
+	height:25px;
+	border: 1px solid #BBCDDF;
+	padding-left: 5px;
+}
+.remark{
+	color:red;
+}
+#load{
+	color:#186FD1;
+	text-decoration: underline;
+	display: inline-block;
+	margin-left: 30px;
+	font-size: 16px;
+}
+#next{
+	margin-top: 20px;
+	margin-right: 40px;
+	margin-left: 25%;
+}
