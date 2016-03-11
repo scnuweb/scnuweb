@@ -15,9 +15,11 @@
         <div class="container">
             <a id="logo" href="">${exam.examName?if_exists}</a>
             <nav id="nav" class="ib nav nav-pills">
-              <li><a href="index.html" class="r5">退出考试</a></li>
+              <li><a href="../exam/exit_exam.html" class="r5">退出考试</a></li>
             </nav>
-            <div class="ib">欢迎您：${Session.currentUser?if_exists.username?if_exists}</div>    
+            <div class="ib">欢迎您：${Session.currentUser?if_exists.username?if_exists}
+        	剩余时间：<span id="show-time-left"></span>
+            </div>    
         </div>
     </div>
     <!--主体部分-->
@@ -29,8 +31,11 @@
                     <span id="function">题目列表</span>
                     <#list examItemList as examItem>
 	                    <div class="leftsidecontent">
-	                        <button class="btn btn-primary menul" onclick="addTab('${examItem.examItemName?if_exists}','../exam/show_exam_content.do?examItemId=${examItem.id}');return false;">
-	                            <span class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;${examItem.examItemName?if_exists}
+	                        <button class="btn btn-primary menul" onclick="addTab('${examItem.examItemName?if_exists}','../exam/show_exam_content.do?examItemId=${examItem.id}&examId=${exam.id}');return false;">
+	                            <span class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;${examItem.examItemName?if_exists} 
+	                        </button>
+	                        <button class="btn btn-warning menu1" onClick="exam_submit(${exam.id},${examItem.id});">
+	                        	<span class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;提交
 	                        </button>
 	                    </div>
                     </#list> 
@@ -42,7 +47,7 @@
             
               <div title="首页" id="rrr">
                 <div id="rt1">
-                  <a href="" class="rfont">&nbsp;欢迎进入考试系统</a>
+                  <a href="" class="rfont">&nbsp;欢迎进入考试系统，请在左侧选择题目进行作答</a>
                 </div>
               </div>
             
@@ -54,5 +59,29 @@
   <script type="text/javascript" src="frame/easyui/jquery.min.js"></script>
   <script type="text/javascript" src="frame/easyui/jquery.easyui.min.js"></script>
   <script type="text/javascript" src="js/man.js"></script>
+  <script type="text/javascript" src="js/submit.js"></script>
+  <script type="text/javascript" src="js/time_count_down.js"></script>
+  <script type="text/javascript">
+  	var timer;
+  	$(document).ready(function(){
+  		check();
+  		timer = setInterval("check()",1000);
+  	});
+  	function check() {
+  		var now = new Date();
+  		var timeLeft = ${endTime}-now.getTime();
+  		if(timeLeft<=0) {
+  			clearInterval(timer);
+  			<#list examItemList as examItem>
+  				submitAnswer(${exam.id},${examItem.id});
+  			</#list>
+  			alert("考试结束！");
+  			window.location = "../candidate/index.html";
+  		}
+  		else {
+  			count_to_when(timeLeft);
+  		}
+  	}
+  </script>
   </body>
 </html>

@@ -1,0 +1,49 @@
+$(document).ready(function() {
+	<#list itemList as item>
+		<#if item.type == 'button'>
+			$("#${item.button.itemId}").click(function() {
+				var cur_order = $("#cur-order").val();
+				var add = 0;
+				$("input[class*='order-"+cur_order+"']").each(function() {
+					var val = $(this).val();
+					add = 1;
+					oper(this.id,'input',val,cur_order);
+				});
+				$("select[class*='order-"+cur_order+"']").each(function() {
+					var val = $(this).find("option:selected").text();
+					add = 1;
+					oper(this.id,'select',val,cur_order);
+				});
+				$("#cur-order").val(parseInt(cur_order) + parseInt(add) + 1);
+				oper(this.id,'button',"1",parseInt(cur_order) + parseInt(add));
+			});
+		<#--
+		<#elseif item.type == 'select'>
+			$("#${item.widget.itemId}").change(function() {
+				var val = $(this).find("option:selected").text();
+				oper(this.id,'select',val);
+			});
+		<#else>
+			$("#${item.widget.itemId}").blur(function() {
+				var val = $(this).val();
+				oper(this.id,'input',val);
+			});
+		-->
+		</#if>
+	</#list>
+});
+function oper(id,type,val,order) {
+	var obj = new Object();
+	obj.id=id;obj.type=type;obj.value=val;obj.order=order;
+	var ret = JSON.stringify(obj);
+	var exam_item_id = ${examItem.id};
+	$.ajax({
+		dataType:"text",
+		type:"POST",
+		url:'push_operation.do',
+		data:{val:ret,examItemId:exam_item_id},
+		success:function(data) {
+			// do nothing;
+		}
+	});
+}

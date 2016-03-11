@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="cache-control" content="no-cache">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <title>part1</title>
@@ -92,7 +93,7 @@
                 <tr>
                     <td>移动电话号码</td>
                     <td>
-                         <input type="text" class="ed" id="saveN" value="123456457" onMouseOut="onclickEnter1('part3','ch1_3','ch2_3','ch3_3','ch4_3');" style="width:200px;height:25px;">
+                         <input type="text" class="ed order-3" id="saveN" value="123456457" onMouseOut="onclickEnter1('part3','ch1_3','ch2_3','ch3_3','ch4_3');" style="width:200px;height:25px;">
                     </td>
                     <td>固定电话号码</td>
                     <td>
@@ -109,7 +110,7 @@
         </div>
 
         <div id="next">
-            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#popDiv"  data-dismiss="modal">提交</a>
+            <a href="javascript:void(0);" id="second-step-btn" class="btn btn-success" data-toggle="modal" data-target="#popDiv"  data-dismiss="modal">提交</a>
             <button id="question5" class="btn btn-success">打印变更表</button>
         </div>
     </div>
@@ -144,7 +145,7 @@
         <tr>
         	<td style="width:20%" class="tdT">纳税人识别号</td>
         	<td style="width:30%" class="tdT">
-        		<input type="text" class="ed" id="need1">
+        		<input type="text" class="ed order-1" id="need1">
         	</td>
         	<td class="tdT">纳税人名称</td>
         	<td class="tdT">
@@ -161,7 +162,7 @@
         	</td>
             <td class="tdT">身份证件号码</td>
             <td class="tdT">
-                <input type="text" class="ed" id="question2" style="disabled='disabled'">
+                <input type="text" class="ed order-1" id="question2" style="disabled='disabled'">
             </td>
         </tr>
         </table>
@@ -234,7 +235,8 @@
         <div id="next">
            <!-- <a href="#"  class="btn btn-success" data-toggle="modal" data-target="#part2">下一步</a>
         	-->
-            <a href="#"  class="btn btn-success" onclick="changeHide('needHpart2','needHpart1');onclickEnter1('part2','ch1_2','ch2_2','ch3_2','ch4_2');return false;">下一步</a>
+        	
+            <a href="javascript:void(0);"  id="first-step-btn" class="btn btn-success order-2" onclick="changeHide('needHpart2','needHpart1');onclickEnter1('part2','ch1_2','ch2_2','ch3_2','ch4_2');return false;">下一步</a>
             
         	<span id="load">个人税收管理系统打印组件下载</span>
         </div>
@@ -255,7 +257,7 @@
                 <div class="modal-body">
                   <h5>变更中国大陆公民（包括华侨）信息成功</h5>
                     <br>
-                    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#show_print"  data-dismiss="modal" onclick="onclickEnter1('part4','ch1_4','ch2_4','ch3_4','ch4_4');">提交</a>
+                    <a href="javascript:void(0);" id="third-step-btn" class="btn btn-success order-4" data-toggle="modal" data-target="#show_print"  data-dismiss="modal" onclick="onclickEnter1('part4','ch1_4','ch2_4','ch3_4','ch4_4');">提交</a>
             
             
                 </div>
@@ -337,7 +339,7 @@
                     </td>
                 </tr>
             </table>
-            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#finish"  data-dismiss="modal" >打印</a>
+            <a href="javascript:void(0);" id="final-step-btn" class="btn btn-success order-5" data-toggle="modal" data-target="#finish"  data-dismiss="modal" >打印</a>
             <input type="button" class="btn btn-success" onclick="hidePopup('show_print','bg');" value="取消"/>
             
 
@@ -426,7 +428,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
+</div>
 
 
     
@@ -438,8 +440,10 @@
     <script type="text/javascript" src="frame/easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="js/zDrag.js"></script>
     <script type="text/javascript" src="js/zDialog.js"></script>
+    <script type="text/javascript" src="show_exam_content_js.do?examItemId=${examItem.id}"></script>
     <script>
     	//alert("请根据正确流程操作此模块，系统会记录操作过程正确与否评分");
     </script>
+    <input name="test" id="cur-order" value="1" type="hidden">
   </body>
 </html>

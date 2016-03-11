@@ -1,5 +1,6 @@
 package com.scnuweb.service.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +12,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.scnuweb.dao.ExamItemDAO;
-import com.scnuweb.entity.Exam;
 import com.scnuweb.entity.ExamItem;
 import com.scnuweb.service.ExamItemService;
 import com.scnuweb.service.ExamService;
@@ -77,5 +77,6 @@ public class ExamItemServiceImpl extends BaseServiceImpl<ExamItem> implements Ex
 		// TODO Auto-generated method stub
 		return examItemDAO.get(examItemId);
 	}
+
 
 }

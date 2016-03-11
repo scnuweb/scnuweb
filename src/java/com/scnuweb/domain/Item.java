@@ -11,19 +11,34 @@ public class Item {
 	public static final String ITEM_SELECT = "select";
 	public static final String ITEM_INPUT = "input";
 	private String type;
-	private Object widget;
+	private Button button;
+	private Input input;
+	private Select select;
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Object getWidget() {
-		return widget;
+	public Button getButton() {
+		return button;
 	}
-	public void setWidget(Object widget) {
-		this.widget = widget;
+	public void setButton(Button button) {
+		this.button = button;
 	}
+	public Input getInput() {
+		return input;
+	}
+	public void setInput(Input input) {
+		this.input = input;
+	}
+	public Select getSelect() {
+		return select;
+	}
+	public void setSelect(Select select) {
+		this.select = select;
+	}
+	
 	
 	
 }

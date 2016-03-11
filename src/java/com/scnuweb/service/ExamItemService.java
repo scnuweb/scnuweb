@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.scnuweb.dao.ExamItemDAO;
+import com.scnuweb.entity.Exam;
 import com.scnuweb.entity.ExamItem;
+import com.scnuweb.entity.User;
 
 public interface ExamItemService extends BaseService<ExamItemDAO>{
 	public List<ExamItem> getAllExamItems();
@@ -14,4 +16,5 @@ public interface ExamItemService extends BaseService<ExamItemDAO>{
 	public ExamItem updateExamItem(ExamItem examItem);
 	public void delete(Long examItemId);
 	public ExamItem getExamItemById(Long examItemId);
+	
 }

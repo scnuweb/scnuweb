@@ -16,7 +16,7 @@ public class ExamItem {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(name="question_struct")
+	@Column(name="question_struct",columnDefinition = "text")
 	private String questionStruct;
 	@Column(name="exam_item_name")
 	private String examItemName;

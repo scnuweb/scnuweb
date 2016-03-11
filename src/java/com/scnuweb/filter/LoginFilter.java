@@ -51,7 +51,8 @@ public class LoginFilter implements Filter{
 				if(!requestPath.startsWith("/admin/"))response.sendRedirect(redirectBaseUrl+"admin/index.html");
 				else chain.doFilter(resq, resp);
 			} else if(user.getUserType()==StaticVar.USER_TYPE_CANDIDATE){
-				if(!requestPath.startsWith("/candidate/"))response.sendRedirect(redirectBaseUrl+"candidate/index.html");
+				if(requestPath.startsWith("/exam/"))chain.doFilter(resq, resp);
+				else if(!requestPath.startsWith("/candidate/"))response.sendRedirect(redirectBaseUrl+"candidate/index.html");
 				else chain.doFilter(resq, resp);
 			}
 		}

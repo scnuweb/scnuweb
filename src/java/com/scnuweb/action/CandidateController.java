@@ -1,7 +1,5 @@
 package com.scnuweb.action;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -14,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.scnuweb.domain.Answer;
+import com.scnuweb.domain.AnswerList;
 import com.scnuweb.entity.Exam;
 import com.scnuweb.entity.ExamGrade;
 import com.scnuweb.entity.ExamItem;
@@ -38,6 +38,7 @@ public class CandidateController {
 	@RequestMapping("index")
 	public String candidate(ModelMap modelMap, HttpServletRequest request) {
 		currUser = (User) request.getSession().getAttribute("currentUser");
+		if(currUser!=null)currUser = userService.getUserById(currUser.getId());
 		return "candidate";
 	}
 
@@ -75,6 +76,8 @@ public class CandidateController {
 		if (examGrade != null) {
 			modelMap.put("examGrade", examGrade);
 			modelMap.put("exam", examGrade.getExam());
+			AnswerList answerList = MyJson.fromJson(examGrade.getCandidateAnswer(), AnswerList.class);
+			modelMap.put("gradeList", answerList.getAnswerList());
 		}
 		return "search_grade";
 
@@ -92,9 +95,18 @@ public class CandidateController {
 		if(exam==null||!examList.contains(exam)) {
 			return "redirect:/index";
 		}
+		ExamGrade examGrade = examGradeService.getExamGrade(examId, candidate.getId());
+		if(examGrade!=null) {
+			if(examGrade.getIsSubmitted()==1) {
+				modelMap.put("msg", "你已作答完本场所有考试题目！点击退出考试");
+				modelMap.put("redirect_url", "index.html");
+				return "exam_item/exam_info";
+			} 
+		}
 		List<ExamItem> examItemList = exam.getExamItems();
 		modelMap.put("examItemList", examItemList);
 		modelMap.put("exam", exam);
+		modelMap.put("endTime", exam.getEndTime().getTime());
 		return "join_exam";
 	}
 	

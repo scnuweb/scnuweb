@@ -26,6 +26,11 @@ public class ExamGrade {
 	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="exam_id",referencedColumnName="id",unique=false)
 	private Exam exam;
+	@Column(name="candidate_answer",columnDefinition = "text")
+	private String candidateAnswer;
+	@Column(name="is_submitted")
+	private int isSubmitted;
+	
 	public Long getId() {
 		return id;
 	}
@@ -49,6 +54,18 @@ public class ExamGrade {
 	}
 	public void setExam(Exam exam) {
 		this.exam = exam;
+	}
+	public String getCandidateAnswer() {
+		return candidateAnswer;
+	}
+	public void setCandidateAnswer(String candidateAnswer) {
+		this.candidateAnswer = candidateAnswer;
+	}
+	public int getIsSubmitted() {
+		return isSubmitted;
+	}
+	public void setIsSubmitted(int isSubmitted) {
+		this.isSubmitted = isSubmitted;
 	}
 	
 	
