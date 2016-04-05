@@ -87,7 +87,7 @@ public class ExamController {
 	public String pushOperation(ModelMap modelMap,HttpServletRequest request,String val,Long examItemId) {
 		HttpSession session = request.getSession(false);
 		Assert.notNull(session,"session can not be null");
-		Exam exam = (Exam)session.getAttribute("exam1");
+		Exam exam = (Exam)session.getAttribute("cur_exam");
 		Assert.notNull(exam,"exam can not be null");
 		Long nowTime = System.currentTimeMillis();
 		if(nowTime<exam.getStartTime().getTime()||nowTime>exam.getEndTime().getTime()) {

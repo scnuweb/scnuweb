@@ -3,14 +3,8 @@ package com.scnuweb.dao;
 
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Isolation;
-
 import com.scnuweb.util.Page;
 
-@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_UNCOMMITTED)
 public interface BaseDAO<T> {
 
 	public Long save(T t);

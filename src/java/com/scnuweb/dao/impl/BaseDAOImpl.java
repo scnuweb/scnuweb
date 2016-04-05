@@ -17,6 +17,8 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.scnuweb.dao.BaseDAO;
@@ -29,6 +31,7 @@ import com.scnuweb.util.Page;
  */
 
 @Repository
+@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 public abstract class BaseDAOImpl<T> implements BaseDAO<T>{
 	protected SessionFactory sessionFactory;
 
