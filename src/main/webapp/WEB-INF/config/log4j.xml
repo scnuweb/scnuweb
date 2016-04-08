@@ -12,7 +12,7 @@
 </appender>
 
 <appender name="allAppender" class="org.apache.log4j.DailyRollingFileAppender">
-<param name="File" value="E:\log/project1/debug.log" />
+<param name="File" value="E:\log/scnuweb/debug.log" />
 <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
 <layout class="org.apache.log4j.PatternLayout">
 <param name="ConversionPattern"
@@ -30,7 +30,7 @@ value="[%d{MMdd HH:mm:ss SSS\} %-5p] [%t] %c{3\} - %m%n" />
 </appender> -->
 
 <appender name="dbAppender" class="org.apache.log4j.DailyRollingFileAppender">
-<param name="File" value="E:\log/project1/db.log" />
+<param name="File" value="E:\log/scnuweb/db.log" />
 <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
 <layout class="org.apache.log4j.PatternLayout">
 <param name="ConversionPattern"
